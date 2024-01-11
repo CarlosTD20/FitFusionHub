@@ -1,5 +1,5 @@
 ## FitFusinHub
-#Gym Exercise API
+# Gym Exercise API
 
 
 With the ability to add more exercises and create routines.

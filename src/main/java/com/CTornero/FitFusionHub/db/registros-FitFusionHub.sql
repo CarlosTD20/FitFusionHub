@@ -6,7 +6,7 @@ INSERT INTO Musculos (nombre_musculo) VALUES
 ('Tríceps'),
 ('Hombro');
 
-INSERT INTO Rutinas (nombre, descipcion) VALUES
+INSERT INTO Rutinas (nombre, descripcion) VALUES
 ('Día de Pecho', 'Día enfocado a trabajar el pecho.'),
 ('Día de Espalda', 'Día enfocado a trabajar la espalda.'),
 ('Día de Pierna', 'Día enfocado a trabajar la pierna.'),

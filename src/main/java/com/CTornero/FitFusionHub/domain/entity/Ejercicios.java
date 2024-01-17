@@ -1,31 +1,32 @@
 package com.CTornero.FitFusionHub.domain.entity;
 
-
 public class Ejercicios {
-    private int idEjercicio;
+
+    private int id;
+
     private String nombre;
     private String descripcion;
-    private int idMusculo;
-
-    public Ejercicios(int idEjercicio, String nombre, String descripcion, int idMusculo) {
-        this.idEjercicio = idEjercicio;
+    private String nameMusculo;
+    
+    public Ejercicios(String nombre, String descripcion, String nameMusculo) {
         this.nombre = nombre;
         this.descripcion = descripcion;
-        this.idMusculo = idMusculo;
+        this.nameMusculo = nameMusculo;
     }
 
-    public Ejercicios(String nombre, String descripcion, int idMusculo) {
+    public Ejercicios(int id, String nombre, String descripcion, String nameMusculo) {
+        this.id = id;
         this.nombre = nombre;
         this.descripcion = descripcion;
-        this.idMusculo = idMusculo;
+        this.nameMusculo = nameMusculo;
     }
 
-    public int getIdEjercicio() {
-        return idEjercicio;
+    public int getid() {
+        return id;
     }
 
-    public void setIdEjercicio(int idEjercicio) {
-        this.idEjercicio = idEjercicio;
+    public void setid(int id) {
+        this.id = id;
     }
 
     public String getNombre() {
@@ -44,21 +45,17 @@ public class Ejercicios {
         this.descripcion = descripcion;
     }
 
-    public int getIdMusculo() {
-        return idMusculo;
+    public String getNameMusculo() {
+        return nameMusculo;
     }
 
-    public void setIdMusculo(int idMusculo) {
-        this.idMusculo = idMusculo;
+    public void setNameMusculo(String nameMusculo) {
+        this.nameMusculo = nameMusculo;
     }
 
     @Override
     public String toString() {
-        return "Ejercicios{" +
-                "idEjercicio=" + idEjercicio +
-                ", nombre='" + nombre + '\'' +
-                ", descripcion='" + descripcion + '\'' +
-                ", idMusculo=" + idMusculo +
-                '}';
+        return "Ejercicios [id=" + id + ", nombre=" + nombre + ", descripcion=" + descripcion
+                + ", nameMusculo=" + nameMusculo + "]";
     }
 }

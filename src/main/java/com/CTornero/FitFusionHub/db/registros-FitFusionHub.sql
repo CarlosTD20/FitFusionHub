@@ -1,4 +1,4 @@
-INSERT INTO Musculos (nombre_musculo) VALUES
+INSERT INTO Musculos (nombre) VALUES
 ('Pecho'),
 ('Espalda'),
 ('Pierna'),

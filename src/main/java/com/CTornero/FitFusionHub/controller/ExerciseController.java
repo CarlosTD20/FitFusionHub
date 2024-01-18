@@ -28,7 +28,7 @@ public class ExerciseController {
     @ResponseStatus(HttpStatus.OK)
     @GetMapping("")
     public Response getAllExercise(@RequestParam(required = false) Integer page, @RequestParam(required = false) Integer pageSize){
-        pageSize = (pageSize != null)? page : LIMIT;
+        pageSize = (pageSize != null)? pageSize : LIMIT;
         long totalRecords = exerciseService.getTotalNumberOfRecords();
 
         List<Exercise> exercises =  exerciseService.getAllExercise(page,pageSize);

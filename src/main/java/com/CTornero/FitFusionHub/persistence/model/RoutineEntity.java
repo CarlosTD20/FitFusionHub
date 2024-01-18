@@ -7,22 +7,22 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
-@Table(name = "Rutinas")
+@Table(name = "Routines")
 @Data
 @NoArgsConstructor
-public class RutinasEntity {
+public class RoutineEntity {
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String name;
-    private String descripcion;
+    private String description;
 
     @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(
-        name = "ejercicios_rutinas",
-        joinColumns = @JoinColumn(name = "id_rutina"),
-        inverseJoinColumns = @JoinColumn(name = "id_ejercicio")
+        name = "exercises_routines",
+        joinColumns = @JoinColumn(name = "id_ruotine"),
+        inverseJoinColumns = @JoinColumn(name = "id_exercise")
     )
-    private List<EjerciciosEntity> EjerciciosEntity;
+    private List<ExerciseEntity> ExerciseEntity;
 }

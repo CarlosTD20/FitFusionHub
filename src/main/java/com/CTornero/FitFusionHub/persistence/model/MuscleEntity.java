@@ -5,18 +5,14 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
-@Table(name = "Ejercicios")
+@Table(name = "Muscles")
 @Data
 @NoArgsConstructor
-public class EjerciciosEntity {
+public class MuscleEntity {
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    private String nombre;
-    private String descripcion;
-
-    @OneToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "id_musculos")
-    private MusculosEntity musculosEntity;
+    private String name;
 }
+

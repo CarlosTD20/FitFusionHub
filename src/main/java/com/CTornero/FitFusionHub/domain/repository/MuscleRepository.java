@@ -1,4 +1,4 @@
 package com.CTornero.FitFusionHub.domain.repository;
 
-public interface RutinasRepository {
+public interface MuscleRepository {
 }

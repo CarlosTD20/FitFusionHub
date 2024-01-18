@@ -1,4 +1,4 @@
-INSERT INTO Musculos (nombre) VALUES
+INSERT INTO Muscles (name) VALUES
 ('Pecho'),
 ('Espalda'),
 ('Pierna'),
@@ -6,7 +6,7 @@ INSERT INTO Musculos (nombre) VALUES
 ('Tríceps'),
 ('Hombro');
 
-INSERT INTO Rutinas (nombre, descripcion) VALUES
+INSERT INTO Routines (name, description) VALUES
 ('Día de Pecho', 'Día enfocado a trabajar el pecho.'),
 ('Día de Espalda', 'Día enfocado a trabajar la espalda.'),
 ('Día de Pierna', 'Día enfocado a trabajar la pierna.'),
@@ -16,7 +16,7 @@ INSERT INTO Rutinas (nombre, descripcion) VALUES
 ('Día de Pull', 'Día enfocado en tirones.'),
 ('Día de Leg', 'Día enfocado en la pierna.');
 
-INSERT INTO Ejercicios (nombre, descripcion, id_musculo) VALUES
+INSERT INTO Exercises (name, description, id_muscle) VALUES
 ('Press de banca', 'Descripción del Press de Banca', 1),
 ('Press inclinado', 'Descripción del Press Inclinado', 1),
 ('Pull-ups', 'Descripción de Pull-ups', 2),
@@ -76,33 +76,33 @@ INSERT INTO Ejercicios (nombre, descripcion, id_musculo) VALUES
 ('Flys en máquina', 'Descripción de Flys en Máquina', 1);
 
 
-INSERT INTO Ejercicios_Rutinas (id_ejercicio, id_rutina) VALUES
+INSERT INTO Exercises_Routines (id_exercise, id_routine) VALUES
 (1, 1), (2, 1), (13, 1), (38,1);
 
 
-INSERT INTO Ejercicios_Rutinas (id_ejercicio, id_rutina) VALUES
+INSERT INTO Exercises_Routines (id_exercise, id_routine) VALUES
 (3, 2), (14, 2), (39, 2), (43, 2);
 
 
-INSERT INTO Ejercicios_Rutinas (id_ejercicio, id_rutina) VALUES
+INSERT INTO Exercises_Routines (id_exercise, id_routine) VALUES
 (5, 3), (15, 3), (53, 3), (7, 3), (8, 3), (44, 3);
 
 
-INSERT INTO Ejercicios_Rutinas (id_ejercicio, id_rutina) VALUES
+INSERT INTO Exercises_Routines (id_exercise, id_routine) VALUES
 (11, 4), (20, 4), (25, 4), (13, 4), (22, 4), (41, 4);
 
 
-INSERT INTO Ejercicios_Rutinas (id_ejercicio, id_rutina) VALUES
+INSERT INTO Exercises_Routines (id_exercise, id_routine) VALUES
 (15, 5), (16, 5), (21, 5), (35, 5);
 
 
-INSERT INTO Ejercicios_Rutinas (id_ejercicio, id_rutina) VALUES
+INSERT INTO Exercises_Routines (id_exercise, id_routine) VALUES
 (1, 6), (2, 6), (11, 6), (20, 6);
 
 
-INSERT INTO Ejercicios_Rutinas (id_ejercicio, id_rutina) VALUES
+INSERT INTO Exercises_Routines (id_exercise, id_routine) VALUES
 (39, 7), (43, 7), (22, 7), (41, 7); 
 
 
-INSERT INTO Ejercicios_Rutinas (id_ejercicio, id_rutina) VALUES
+INSERT INTO Exercises_Routines (id_exercise, id_routine) VALUES
 (5, 8), (15, 8), (53, 8), (7, 8), (8, 8), (44, 8);

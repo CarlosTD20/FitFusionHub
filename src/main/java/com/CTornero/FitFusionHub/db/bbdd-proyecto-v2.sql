@@ -4,37 +4,37 @@ CREATE DATABASE FitFusionHub;
 USE FitFusionHub;
 
 
-CREATE TABLE Musculos
+CREATE TABLE Muscles
 (
     id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
-    nombre NVARCHAR(50) NOT NULL
+    name NVARCHAR(50) NOT NULL
 );
 
 
-CREATE TABLE Ejercicios
+CREATE TABLE Exercises
 (
     id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
-    nombre NVARCHAR(50) NOT NULL,
-    descripcion NVARCHAR(300) NOT NULL,
-    id_musculo INT,
-    FOREIGN KEY (id_musculo) REFERENCES Musculos(id)
+    name NVARCHAR(50) NOT NULL,
+    description NVARCHAR(300) NOT NULL,
+    id_muscle INT,
+    FOREIGN KEY (id_muscle) REFERENCES muscles(id)
 );
 
 
-CREATE TABLE Rutinas
+CREATE TABLE Routines
 (
     id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
-    nombre NVARCHAR(50) NOT NULL,
-    descripcion NVARCHAR(300) NOT NULL
+    name NVARCHAR(50) NOT NULL,
+    description NVARCHAR(300) NOT NULL
 );
 
 
-CREATE TABLE Ejercicios_Rutinas
+CREATE TABLE Exercises_Routines
 (
     id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
-    id_ejercicio INT,
-    id_rutina INT,
-    FOREIGN KEY (id_ejercicio) REFERENCES Ejercicios(id),
-    FOREIGN KEY (id_rutina) REFERENCES Rutinas(id)
+    id_exercise INT,
+    id_routine INT,
+    FOREIGN KEY (id_exercise) REFERENCES exercises(id),
+    FOREIGN KEY (id_routine) REFERENCES routines(id)
 );
 

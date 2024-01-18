@@ -1,25 +1,24 @@
 package com.CTornero.FitFusionHub.domain.entity;
 
-public class Musculos {
+public class Muscle {
 
     private int id;
-
     private String name;
 
-    public Musculos(String name) {
-        this.name = name;
-    }
-
-    public Musculos(int id, String name) {
+    public Muscle(int id, String name) {
         this.id = id;
         this.name = name;
     }
 
-    public int getid() {
+    public Muscle(String name) {
+        this.name = name;
+    }
+
+    public int getId() {
         return id;
     }
 
-    public void setid(int id) {
+    public void setId(int id) {
         this.id = id;
     }
 
@@ -33,6 +32,9 @@ public class Musculos {
 
     @Override
     public String toString() {
-        return "Musculos [id=" + id + ", name=" + name + "]";
+        return "Muscle{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                '}';
     }
 }

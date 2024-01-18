@@ -1,0 +1,42 @@
+package com.CTornero.FitFusionHub.controller;
+
+import com.CTornero.FitFusionHub.controller.Model.exercise.ExerciseListWeb;
+import com.CTornero.FitFusionHub.domain.entity.Exercise;
+import com.CTornero.FitFusionHub.domain.service.ExerciseService;
+import com.CTornero.FitFusionHub.http_response.Response;
+import com.CTornero.FitFusionHub.mapper.ExerciseMapper;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.http.HttpStatus;
+import org.springframework.stereotype.Controller;
+import org.springframework.stereotype.Repository;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
+
+@RestController
+@RequestMapping("/exercise")
+public class ExerciseController {
+
+    @Value("${LIMIT}")
+    private Integer LIMIT;
+
+
+    @Autowired
+    private ExerciseService exerciseService;
+
+    @ResponseStatus(HttpStatus.OK)
+    @GetMapping("")
+    public Response getAllExercise(@RequestParam(required = false) Integer page, @RequestParam(required = false) Integer pageSize){
+        pageSize = (pageSize != null)? page : LIMIT;
+        long totalRecords = exerciseService.getTotalNumberOfRecords();
+
+        List<Exercise> exercises =  exerciseService.getAllExercise(page,pageSize);
+        List<ExerciseListWeb> exerciseListWebs =exercises.stream()
+                .map(exercise -> ExerciseMapper.mapper.toExerciseListWeb(exercise))
+                .toList();
+
+        return new Response(exerciseListWebs,Math.toIntExact(totalRecords),page,pageSize);
+    }
+
+}

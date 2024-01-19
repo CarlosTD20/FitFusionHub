@@ -11,6 +11,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
+import java.util.Optional;
 
 @Component
 public class ExerciseRepositoryImpl implements ExerciseRepository {
@@ -27,6 +28,16 @@ public class ExerciseRepositoryImpl implements ExerciseRepository {
             exerciseEntityList = exerciseDAO.findAll();
         }
         return ExerciseMapper.mapper.toExerciseList(exerciseEntityList);
+    }
+
+    @Override
+    public Optional<Exercise> findById(int id) {
+        //return Optional.ofNullable(ExerciseMapper.mapper.toExercise(exerciseDAO.findById(id).get()));
+        ExerciseEntity exerciseEntity = exerciseDAO.findById(id).orElse(null);
+        if (exerciseEntity == null) {
+            return Optional.empty();
+        }
+        return Optional.ofNullable(ExerciseMapper.mapper.toExercise(exerciseEntity));
     }
 
     @Override

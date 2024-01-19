@@ -7,5 +7,6 @@ import java.util.List;
 public interface ExerciseService {
 
     public List<Exercise> getAllExercise(Integer page, Integer pageSize);
+    public Exercise findById(int id);
     public long getTotalNumberOfRecords();
 }

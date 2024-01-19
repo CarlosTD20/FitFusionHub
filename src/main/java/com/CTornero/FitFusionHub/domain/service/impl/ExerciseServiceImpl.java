@@ -20,6 +20,11 @@ public class ExerciseServiceImpl implements ExerciseService {
     }
 
     @Override
+    public Exercise findById(int id) {
+        return exerciseRepository.findById(id).get();
+    }
+
+    @Override
     public long getTotalNumberOfRecords() {
         return exerciseRepository.getTotalNumberOfRecords();
     }

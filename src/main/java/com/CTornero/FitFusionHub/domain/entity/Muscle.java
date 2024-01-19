@@ -14,6 +14,9 @@ public class Muscle {
         this.name = name;
     }
 
+    public Muscle() {
+    }
+
     public int getId() {
         return id;
     }

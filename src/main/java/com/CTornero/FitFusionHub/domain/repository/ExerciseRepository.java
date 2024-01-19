@@ -3,10 +3,11 @@ package com.CTornero.FitFusionHub.domain.repository;
 import com.CTornero.FitFusionHub.domain.entity.Exercise;
 
 import java.util.List;
+import java.util.Optional;
 
 public interface ExerciseRepository {
 
     public List<Exercise> getAllExercise(Integer page, Integer pageSize);
-
+    public Optional<Exercise> findById(int id);
     public long getTotalNumberOfRecords();
 }

@@ -39,4 +39,9 @@ public class ExerciseController {
         return new Response(exerciseListWebs,Math.toIntExact(totalRecords),page,pageSize);
     }
 
+    @ResponseStatus(HttpStatus.OK)
+    @GetMapping("/{id}")
+    public Response findById(@PathVariable("id") int id){
+        return new Response(ExerciseMapper.mapper.toExerciseDetailWeb(exerciseService.findById(id)));
+    }
 }

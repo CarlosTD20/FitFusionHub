@@ -23,6 +23,8 @@ public interface ExerciseMapper {
 
     ExerciseListWeb toExerciseListWeb(Exercise exercise);
 
+    List<ExerciseListWeb> toExerciseListWebList(List<Exercise> exercises);
+
     @Mapping(target = "muscle", expression = "java(MuscleMapper.mapper.toMuscleListWeb(exercise.getMuscle()))")
     ExerciseDetailWeb toExerciseDetailWeb(Exercise exercise);
 }

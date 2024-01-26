@@ -12,7 +12,7 @@ import java.util.List;
 public class ExerciseServiceImpl implements ExerciseService {
 
     @Autowired
-    public ExerciseRepository exerciseRepository;
+    private ExerciseRepository exerciseRepository;
 
     @Override
     public List<Exercise> getAllExercise(Integer page, Integer pageSize) {

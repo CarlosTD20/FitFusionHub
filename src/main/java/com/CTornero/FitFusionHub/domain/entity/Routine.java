@@ -7,20 +7,17 @@ public class Routine {
     private int id;
     private String name;
     private String description;
-    private List<Exercise> Exercise;
+    private List<Exercise> exercise;
 
+
+    public Routine() {
+    }
 
     public Routine(int id, String name, String description, List<Exercise> exercise) {
         this.id = id;
         this.name = name;
         this.description = description;
-        Exercise = exercise;
-    }
-
-    public Routine(String name, String description, List<Exercise> exercise) {
-        this.name = name;
-        this.description = description;
-        Exercise = exercise;
+        this.exercise = exercise;
     }
 
     public int getId() {
@@ -47,12 +44,12 @@ public class Routine {
         this.description = description;
     }
 
-    public List<com.CTornero.FitFusionHub.domain.entity.Exercise> getExercise() {
-        return Exercise;
+    public List<Exercise> getExercise() {
+        return exercise;
     }
 
-    public void setExercise(List<com.CTornero.FitFusionHub.domain.entity.Exercise> exercise) {
-        Exercise = exercise;
+    public void setExercise(List<Exercise> exercise) {
+        this.exercise = exercise;
     }
 
     @Override
@@ -61,7 +58,7 @@ public class Routine {
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", description='" + description + '\'' +
-                ", Exercise=" + Exercise +
+                ", exercise=" + exercise +
                 '}';
     }
 }

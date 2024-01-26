@@ -16,7 +16,7 @@ public class ExerciseEntity {
     private String name;
     private String description;
 
-    @OneToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id_muscle")
     private MuscleEntity muscleEntity;
 }

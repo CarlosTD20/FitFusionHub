@@ -1,9 +1,13 @@
 package com.CTornero.FitFusionHub.domain.entity;
 
+import java.util.List;
+
 public class Muscle {
 
     private int id;
     private String name;
+
+    private List<Exercise> exercise;
 
     public Muscle(int id, String name) {
         this.id = id;
@@ -33,11 +37,21 @@ public class Muscle {
         this.name = name;
     }
 
+
+    public List<Exercise> getExercise() {
+        return exercise;
+    }
+
+    public void setExercise(List<Exercise> exercise) {
+        this.exercise = exercise;
+    }
+
     @Override
     public String toString() {
         return "Muscle{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
+                ", exercise=" + exercise +
                 '}';
     }
 }

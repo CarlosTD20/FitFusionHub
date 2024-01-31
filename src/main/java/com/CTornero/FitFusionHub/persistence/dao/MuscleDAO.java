@@ -9,8 +9,4 @@ import java.util.Optional;
 
 @Repository
 public interface MuscleDAO extends JpaRepository<MuscleEntity, Integer> {
-
-    public List<MuscleEntity> findAll();
-    public Optional<MuscleEntity> findById(int id);
-
 }

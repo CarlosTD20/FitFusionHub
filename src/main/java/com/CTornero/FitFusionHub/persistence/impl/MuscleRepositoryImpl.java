@@ -45,6 +45,4 @@ public class MuscleRepositoryImpl implements MuscleRepository {
 
         return Optional.ofNullable(muscle);
     }
-
-
 }

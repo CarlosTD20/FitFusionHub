@@ -10,10 +10,6 @@ import java.util.Optional;
 @Repository
 public interface ExerciseDAO extends JpaRepository<ExerciseEntity, Integer> {
 
-    public List<ExerciseEntity> findAll();
-
-    public Optional<ExerciseEntity> findById(int id);
-
     //Listado de ejercicio por gurpo muscular
     public List<ExerciseEntity> findByMuscleEntityId(int id);
 }

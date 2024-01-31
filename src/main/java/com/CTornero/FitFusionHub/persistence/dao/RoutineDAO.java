@@ -9,8 +9,4 @@ import java.util.Optional;
 
 @Repository
 public interface RoutineDAO extends JpaRepository<RoutineEntity, Integer> {
-
-    public List<RoutineEntity> findAll();
-
-    public Optional<RoutineEntity> findById(int id);
 }

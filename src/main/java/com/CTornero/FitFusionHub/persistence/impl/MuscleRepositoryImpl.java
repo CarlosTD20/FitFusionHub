@@ -29,20 +29,9 @@ public class MuscleRepositoryImpl implements MuscleRepository {
         List<MuscleEntity> muscleEntities = muscleDAO.findAll().stream().toList();
         return MuscleMapper.mapper.toMuscleList(muscleEntities);
     }
-
     @Override
     public Optional<Muscle> findById(int id) {
-        return Optional.ofNullable(MuscleMapper.mapper.toMuscle(muscleDAO.findById(id).get()));
-    }
-
-    @Override
-    public Optional<Muscle> findExerciseByMuscleId(int id) {
-        List<ExerciseEntity> exerciseEntities = exerciseDAO.findByMuscleEntityId(id);
-        List<Exercise> exercises = ExerciseMapper.mapper.toExerciseList(exerciseEntities);
-
         Muscle muscle = MuscleMapper.mapper.toMuscle(muscleDAO.findById(id).get());
-        muscle.setExercise(exercises);
-
         return Optional.ofNullable(muscle);
     }
 }

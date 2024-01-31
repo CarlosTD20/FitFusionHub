@@ -30,7 +30,7 @@ public class MuscleController {
 
     @ResponseStatus(HttpStatus.OK)
     @GetMapping("/{id}")
-    public Response findExerciseByMuscleId(@PathVariable("id") int id){
-        return new Response(MuscleMapper.mapper.toMuscleDetailWeb(muscleService.findExerciseByMuscleId(id)));
+    public Response findById(@PathVariable("id") int id){
+        return new Response(MuscleMapper.mapper.toMuscleDetailWeb(muscleService.findById(id)));
     }
 }

@@ -8,5 +8,4 @@ import java.util.Optional;
 public interface MuscleRepository {
     public List<Muscle> getAllMuscles();
     public Optional<Muscle> findById(int id);
-    public Optional<Muscle> findExerciseByMuscleId(int id);
 }

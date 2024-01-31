@@ -49,6 +49,11 @@ public class ExerciseRepositoryImpl implements ExerciseRepository {
     }
 
     @Override
+    public List<Exercise> findByMuscleId(int muscleId) {
+        return ExerciseMapper.mapper.toExerciseList(exerciseDAO.findByMuscleEntityId(muscleId));
+    }
+
+    @Override
     public long getTotalNumberOfRecords() {
        return exerciseDAO.count();
     }

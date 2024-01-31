@@ -7,5 +7,5 @@ import java.util.List;
 public interface MuscleService {
 
     public List<Muscle> getAllMuscles();
-    public Muscle findExerciseByMuscleId(int id);
+    public Muscle findById(int id);
 }

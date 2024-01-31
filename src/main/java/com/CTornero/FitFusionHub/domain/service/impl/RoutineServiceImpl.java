@@ -19,6 +19,12 @@ public class RoutineServiceImpl implements RoutineService {
     ExerciseRepository exerciseRepository;
 
     @Override
+    public void deleteRoutine(int routineId) {
+        Routine routine = routineRepository.findRoutineByID(routineId).get();
+        routineRepository.deleteRoutine(routine);
+    }
+
+    @Override
     public Routine insertRoutine(Routine routine, List<Integer> exerciseListIds) {
         List<Exercise> exercises = exerciseListIds.stream()
                 .map(exerciseID -> exerciseRepository.findById(exerciseID).orElseThrow(null))

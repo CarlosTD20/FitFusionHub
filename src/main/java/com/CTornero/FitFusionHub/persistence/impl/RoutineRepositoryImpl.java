@@ -18,6 +18,11 @@ public class RoutineRepositoryImpl implements RoutineRepository {
     RoutineDAO routineDAO;
 
     @Override
+    public void deleteRoutine(Routine routine) {
+        routineDAO.delete(RoutineMapper.mapper.toRoutineEntity(routine));
+    }
+
+    @Override
     public Routine insertRoutine(Routine routine) {
         RoutineEntity routineEntity = routineDAO.save(RoutineMapper.mapper.toRoutineEntity(routine));
         return RoutineMapper.mapper.toRoutine(routineEntity);

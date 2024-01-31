@@ -53,4 +53,10 @@ public class ExerciseController {
         Exercise exercise = exerciseService.insertExercise(ExerciseMapper.mapper.toExercise(exerciseCreateWeb), exerciseCreateWeb.getMuscleId());
         return new Response(ExerciseMapper.mapper.toExerciseDetailWeb(exercise));
     }
+
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    @DeleteMapping("/{id}")
+    public void deleteExercise(@PathVariable("id") int exerciseId){
+       exerciseService.deleteExercise(exerciseId);
+    }
 }

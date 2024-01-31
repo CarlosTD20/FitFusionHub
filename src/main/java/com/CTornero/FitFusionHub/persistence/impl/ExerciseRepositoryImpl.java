@@ -21,6 +21,11 @@ public class ExerciseRepositoryImpl implements ExerciseRepository {
     ExerciseDAO exerciseDAO;
 
     @Override
+    public void deleteExercise(Exercise exercise) {
+        exerciseDAO.delete(ExerciseMapper.mapper.toExerciseEntity(exercise));
+    }
+
+    @Override
     @Transactional
     public Exercise insertExercise(Exercise exercise) {
         ExerciseEntity exerciseEntity = exerciseDAO.save(ExerciseMapper.mapper.toExerciseEntity(exercise));

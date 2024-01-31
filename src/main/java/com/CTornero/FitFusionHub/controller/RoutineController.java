@@ -42,4 +42,10 @@ public class RoutineController {
         Routine routine = routineService.insertRoutine(RoutineMapper.mapper.toRoutine(routineCreateWeb),routineCreateWeb.getExerciseId());
         return new Response(RoutineMapper.mapper.toRoutineDetailWeb(routine));
     }
+
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    @DeleteMapping("/{id}")
+    public void deleteRoutine(@PathVariable("id") int routineId){
+        routineService.deleteRoutine(routineId);
+    }
 }

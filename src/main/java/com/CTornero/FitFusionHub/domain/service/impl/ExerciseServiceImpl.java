@@ -19,6 +19,12 @@ public class ExerciseServiceImpl implements ExerciseService {
     private MuscleRepository muscleRepository;
 
     @Override
+    public void deleteExercise(int exerciseId) {
+        Exercise exercise = exerciseRepository.findById(exerciseId).get();
+        exerciseRepository.deleteExercise(exercise);
+    }
+
+    @Override
     public Exercise insertExercise(Exercise exercise, int muscleId) {
         Muscle muscle = muscleRepository.findById(muscleId).get();
         exercise.setMuscle(muscle);

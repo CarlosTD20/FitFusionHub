@@ -16,6 +16,9 @@ public interface ExerciseMapper {
 
     ExerciseMapper mapper = Mappers.getMapper(ExerciseMapper.class);
 
+    @Mapping(target = "muscleEntity", ignore = true)
+    List<ExerciseEntity> toExerciseEntityList(List<Exercise> exercises);
+
     @Mapping(target = "muscle", ignore = true)
     Exercise toExercise(ExerciseCreateWeb exerciseCreateWeb);
 

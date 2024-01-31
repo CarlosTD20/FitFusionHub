@@ -6,6 +6,7 @@ import java.util.List;
 
 public interface RoutineService {
 
+    public Routine insertRoutine(Routine routine, List<Integer> exerciseListIds);
     public List<Routine> getAllRoutines();
     public Routine findRoutineById(int id);
 }

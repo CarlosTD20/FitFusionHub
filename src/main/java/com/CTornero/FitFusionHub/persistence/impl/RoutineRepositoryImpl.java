@@ -18,6 +18,12 @@ public class RoutineRepositoryImpl implements RoutineRepository {
     RoutineDAO routineDAO;
 
     @Override
+    public Routine insertRoutine(Routine routine) {
+        RoutineEntity routineEntity = routineDAO.save(RoutineMapper.mapper.toRoutineEntity(routine));
+        return RoutineMapper.mapper.toRoutine(routineEntity);
+    }
+
+    @Override
     public List<Routine> getAllRoutine() {
         List<RoutineEntity> routineEntities = routineDAO.findAll();
         return RoutineMapper.mapper.toRoutineList(routineEntities);

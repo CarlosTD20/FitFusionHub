@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/exercise")
+@RequestMapping("/exercises")
 public class ExerciseController {
 
     @Value("${LIMIT}")

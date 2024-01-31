@@ -6,6 +6,7 @@ import java.util.List;
 
 public interface ExerciseService {
 
+    public Exercise insertExercise(Exercise exercise, int muscleId);
     public List<Exercise> getAllExercise(Integer page, Integer pageSize);
     public Exercise findById(int id);
     public long getTotalNumberOfRecords();

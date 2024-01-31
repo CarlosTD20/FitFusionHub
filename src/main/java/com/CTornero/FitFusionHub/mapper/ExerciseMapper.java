@@ -1,5 +1,6 @@
 package com.CTornero.FitFusionHub.mapper;
 
+import com.CTornero.FitFusionHub.controller.Model.exercise.ExerciseCreateWeb;
 import com.CTornero.FitFusionHub.controller.Model.exercise.ExerciseDetailWeb;
 import com.CTornero.FitFusionHub.controller.Model.exercise.ExerciseListWeb;
 import com.CTornero.FitFusionHub.domain.entity.Exercise;
@@ -14,6 +15,12 @@ import java.util.List;
 public interface ExerciseMapper {
 
     ExerciseMapper mapper = Mappers.getMapper(ExerciseMapper.class);
+
+    @Mapping(target = "muscle", ignore = true)
+    Exercise toExercise(ExerciseCreateWeb exerciseCreateWeb);
+
+    @Mapping(target = "muscleEntity", expression = "java(MuscleMapper.mapper.toMuscleEntity(exercise.getMuscle()))")
+    ExerciseEntity toExerciseEntity(Exercise exercise);
 
     @Mapping(target = "muscle", ignore = true)
     List<Exercise> toExerciseList(List<ExerciseEntity> exerciseEntities);

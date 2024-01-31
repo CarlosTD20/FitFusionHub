@@ -1,5 +1,7 @@
 package com.CTornero.FitFusionHub.controller;
 
+import com.CTornero.FitFusionHub.controller.Model.exercise.ExerciseCreateWeb;
+import com.CTornero.FitFusionHub.controller.Model.exercise.ExerciseDetailWeb;
 import com.CTornero.FitFusionHub.controller.Model.exercise.ExerciseListWeb;
 import com.CTornero.FitFusionHub.domain.entity.Exercise;
 import com.CTornero.FitFusionHub.domain.service.ExerciseService;
@@ -43,5 +45,12 @@ public class ExerciseController {
     @GetMapping("/{id}")
     public Response findById(@PathVariable("id") int id){
         return new Response(ExerciseMapper.mapper.toExerciseDetailWeb(exerciseService.findById(id)));
+    }
+
+    @ResponseStatus(HttpStatus.ACCEPTED)
+    @PostMapping()
+    public Response insertExercise(@RequestBody ExerciseCreateWeb exerciseCreateWeb){
+        Exercise exercise = exerciseService.insertExercise(ExerciseMapper.mapper.toExercise(exerciseCreateWeb), exerciseCreateWeb.getMuscleId());
+        return new Response(ExerciseMapper.mapper.toExerciseDetailWeb(exercise));
     }
 }

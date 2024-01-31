@@ -15,6 +15,8 @@ public interface MuscleMapper {
 
     MuscleMapper mapper = Mappers.getMapper(MuscleMapper.class);
 
+    MuscleEntity toMuscleEntity(Muscle muscle);
+
     @Mapping(target = "exercise", expression = "java(ExerciseMapper.mapper.toExerciseListWebList(muscle.getExercise()))")
     MuscleDetailWeb toMuscleDetailWeb(Muscle muscle);
 

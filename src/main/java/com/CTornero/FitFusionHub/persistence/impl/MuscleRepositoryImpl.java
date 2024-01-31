@@ -31,6 +31,11 @@ public class MuscleRepositoryImpl implements MuscleRepository {
     }
 
     @Override
+    public Optional<Muscle> findById(int id) {
+        return Optional.ofNullable(MuscleMapper.mapper.toMuscle(muscleDAO.findById(id).get()));
+    }
+
+    @Override
     public Optional<Muscle> findExerciseByMuscleId(int id) {
         List<ExerciseEntity> exerciseEntities = exerciseDAO.findByMuscleEntityId(id);
         List<Exercise> exercises = ExerciseMapper.mapper.toExerciseList(exerciseEntities);

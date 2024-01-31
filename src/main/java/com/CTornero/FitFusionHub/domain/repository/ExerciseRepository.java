@@ -7,6 +7,7 @@ import java.util.Optional;
 
 public interface ExerciseRepository {
 
+    public Exercise insertExercise(Exercise exercise);
     public List<Exercise> getAllExercise(Integer page, Integer pageSize);
     public Optional<Exercise> findById(int id);
     public long getTotalNumberOfRecords();

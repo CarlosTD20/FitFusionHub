@@ -5,6 +5,7 @@ import com.CTornero.FitFusionHub.domain.repository.ExerciseRepository;
 import com.CTornero.FitFusionHub.mapper.ExerciseMapper;
 import com.CTornero.FitFusionHub.persistence.dao.ExerciseDAO;
 import com.CTornero.FitFusionHub.persistence.model.ExerciseEntity;
+import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
@@ -18,6 +19,13 @@ public class ExerciseRepositoryImpl implements ExerciseRepository {
 
     @Autowired
     ExerciseDAO exerciseDAO;
+
+    @Override
+    @Transactional
+    public Exercise insertExercise(Exercise exercise) {
+        ExerciseEntity exerciseEntity = exerciseDAO.save(ExerciseMapper.mapper.toExerciseEntity(exercise));
+        return ExerciseMapper.mapper.toExercise(exerciseEntity);
+    }
 
     public List<Exercise> getAllExercise(Integer page, Integer pageSize){
         List<ExerciseEntity> exerciseEntityList;

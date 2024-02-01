@@ -20,13 +20,20 @@ public class ExerciseServiceImpl implements ExerciseService {
 
     @Override
     public void deleteExercise(int exerciseId) {
-        Exercise exercise = exerciseRepository.findById(exerciseId).get();
+        Exercise exercise = exerciseRepository.findById(exerciseId).orElseThrow(() -> new RuntimeException("No se ha encontrado el ejercicio con el id " + exerciseId));
         exerciseRepository.deleteExercise(exercise);
     }
 
     @Override
+    public Exercise updateExercise(Exercise exercise, int muscleId) {
+        Muscle muscle = muscleRepository.findById(muscleId).orElseThrow(() -> new RuntimeException("No se ha encontrado el músculo con el id " + muscleId));
+        exercise.setMuscle(muscle);
+        return exerciseRepository.updateExercise(exercise);
+    }
+
+    @Override
     public Exercise insertExercise(Exercise exercise, int muscleId) {
-        Muscle muscle = muscleRepository.findById(muscleId).get();
+        Muscle muscle = muscleRepository.findById(muscleId).orElseThrow(() -> new RuntimeException("No se ha encontrado el músculo con el id " + muscleId));
         exercise.setMuscle(muscle);
         return exerciseRepository.insertExercise(exercise);
     }
@@ -38,7 +45,7 @@ public class ExerciseServiceImpl implements ExerciseService {
 
     @Override
     public Exercise findById(int id) {
-        return exerciseRepository.findById(id).get();
+        return exerciseRepository.findById(id).orElseThrow(() -> new RuntimeException("No se ha encontrado el ejercicio con el id " + id));
     }
 
     @Override

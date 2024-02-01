@@ -20,14 +20,14 @@ public class RoutineServiceImpl implements RoutineService {
 
     @Override
     public void deleteRoutine(int routineId) {
-        Routine routine = routineRepository.findRoutineByID(routineId).get();
+        Routine routine = routineRepository.findRoutineByID(routineId).orElseThrow(() -> new RuntimeException("No se ha encontrado la rutina con el id " + routineId));
         routineRepository.deleteRoutine(routine);
     }
 
     @Override
     public Routine insertRoutine(Routine routine, List<Integer> exerciseListIds) {
         List<Exercise> exercises = exerciseListIds.stream()
-                .map(exerciseID -> exerciseRepository.findById(exerciseID).orElseThrow(null))
+                .map(exerciseID -> exerciseRepository.findById(exerciseID).orElseThrow(() -> new RuntimeException("No se ha encontrado el ejercicio con el id " + exerciseID)))
                 .toList();
         routine.setExercise(exercises);
         return routineRepository.insertRoutine(routine);
@@ -40,6 +40,6 @@ public class RoutineServiceImpl implements RoutineService {
 
     @Override
     public Routine findRoutineById(int id) {
-        return routineRepository.findRoutineByID(id).get();
+        return routineRepository.findRoutineByID(id).orElseThrow(() -> new RuntimeException("No se ha encontrado la rutina con el id " + id));
     }
 }

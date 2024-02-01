@@ -26,7 +26,7 @@ public class MuscleServiceImpl implements MuscleService {
     @Override
     public Muscle findById(int id) {
         List<Exercise> exercises = exerciseRepository.findByMuscleId(id);
-        Muscle muscle = muscleRepository.findById(id).get();
+        Muscle muscle = muscleRepository.findById(id).orElseThrow(() -> new RuntimeException("No se ha encontrado el músculo con el id " + id));
         muscle.setExercise(exercises);
         return muscle;
     }

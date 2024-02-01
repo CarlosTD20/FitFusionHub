@@ -2,6 +2,7 @@ package com.CTornero.FitFusionHub.controller;
 
 import com.CTornero.FitFusionHub.controller.Model.routine.RoutineCreateWeb;
 import com.CTornero.FitFusionHub.controller.Model.routine.RoutineListWeb;
+import com.CTornero.FitFusionHub.controller.Model.routine.RoutineUpdateWeb;
 import com.CTornero.FitFusionHub.domain.entity.Routine;
 import com.CTornero.FitFusionHub.domain.service.RoutineService;
 import com.CTornero.FitFusionHub.http_response.Response;
@@ -36,10 +37,18 @@ public class RoutineController {
         return new Response(RoutineMapper.mapper.toRoutineDetailWeb(routineService.findRoutineById(id)));
     }
 
-    @ResponseStatus(HttpStatus.OK)
+    @ResponseStatus(HttpStatus.ACCEPTED)
     @PostMapping()
     public Response insertRoutine(@RequestBody RoutineCreateWeb routineCreateWeb){
         Routine routine = routineService.insertRoutine(RoutineMapper.mapper.toRoutine(routineCreateWeb),routineCreateWeb.getExerciseId());
+        return new Response(RoutineMapper.mapper.toRoutineDetailWeb(routine));
+    }
+
+    @ResponseStatus(HttpStatus.ACCEPTED)
+    @PutMapping("/{id}")
+    public Response updateRoutine(@PathVariable("id") int id, @RequestBody RoutineUpdateWeb routineUpdateWeb){
+        routineUpdateWeb.setId(id);
+        Routine routine = routineService.updateRoutine(RoutineMapper.mapper.toRoutine(routineUpdateWeb),routineUpdateWeb.getExerciseId());
         return new Response(RoutineMapper.mapper.toRoutineDetailWeb(routine));
     }
 

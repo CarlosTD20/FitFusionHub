@@ -25,6 +25,15 @@ public class RoutineServiceImpl implements RoutineService {
     }
 
     @Override
+    public Routine updateRoutine(Routine routine, List<Integer> exerciseListIds) {
+        List<Exercise> exercises = exerciseListIds.stream()
+                .map(exerciseID -> exerciseRepository.findById(exerciseID).orElseThrow(() -> new RuntimeException("No se ha encontrado el ejercicio con el id " + exerciseID)))
+                .toList();
+        routine.setExercise(exercises);
+        return routineRepository.updateRoutine(routine);
+    }
+
+    @Override
     public Routine insertRoutine(Routine routine, List<Integer> exerciseListIds) {
         List<Exercise> exercises = exerciseListIds.stream()
                 .map(exerciseID -> exerciseRepository.findById(exerciseID).orElseThrow(() -> new RuntimeException("No se ha encontrado el ejercicio con el id " + exerciseID)))

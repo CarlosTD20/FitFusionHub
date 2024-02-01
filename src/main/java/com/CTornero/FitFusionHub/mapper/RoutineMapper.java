@@ -4,6 +4,7 @@ import ch.qos.logback.core.read.ListAppender;
 import com.CTornero.FitFusionHub.controller.Model.routine.RoutineCreateWeb;
 import com.CTornero.FitFusionHub.controller.Model.routine.RoutineDetailWeb;
 import com.CTornero.FitFusionHub.controller.Model.routine.RoutineListWeb;
+import com.CTornero.FitFusionHub.controller.Model.routine.RoutineUpdateWeb;
 import com.CTornero.FitFusionHub.domain.entity.Routine;
 import com.CTornero.FitFusionHub.persistence.model.RoutineEntity;
 import org.mapstruct.Mapper;
@@ -17,6 +18,9 @@ import java.util.List;
 public interface RoutineMapper {
 
     RoutineMapper mapper = Mappers.getMapper(RoutineMapper.class);
+
+    @Mapping(target = "exercise", ignore = true)
+    Routine toRoutine(RoutineUpdateWeb routineUpdateWeb);
 
     @Mapping(target = "exercise", ignore = true)
     Routine toRoutine(RoutineCreateWeb routineCreateWeb);

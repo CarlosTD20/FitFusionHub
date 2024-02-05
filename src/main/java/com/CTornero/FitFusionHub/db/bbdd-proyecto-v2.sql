@@ -4,14 +4,14 @@ CREATE DATABASE FitFusionHub;
 USE FitFusionHub;
 
 
-CREATE TABLE Muscles
+CREATE TABLE muscles
 (
     id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
     name NVARCHAR(50) NOT NULL
 );
 
 
-CREATE TABLE Exercises
+CREATE TABLE exercises
 (
     id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
     name NVARCHAR(50) NOT NULL,
@@ -21,7 +21,7 @@ CREATE TABLE Exercises
 );
 
 
-CREATE TABLE Routines
+CREATE TABLE routines
 (
     id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
     name NVARCHAR(50) NOT NULL,
@@ -29,7 +29,7 @@ CREATE TABLE Routines
 );
 
 
-CREATE TABLE Exercises_Routines
+CREATE TABLE exercises_routines
 (
     id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
     id_exercise INT,

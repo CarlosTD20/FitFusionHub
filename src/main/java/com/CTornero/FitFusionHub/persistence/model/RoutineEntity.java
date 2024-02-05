@@ -7,7 +7,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
-@Table(name = "Routines")
+@Table(name = "routines")
 @Data
 @NoArgsConstructor
 public class RoutineEntity {

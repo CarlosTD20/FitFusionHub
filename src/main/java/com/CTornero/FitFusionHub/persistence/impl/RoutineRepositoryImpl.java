@@ -29,6 +29,11 @@ public class RoutineRepositoryImpl implements RoutineRepository {
     }
 
     @Override
+    public Routine findByName(String name) {
+        return RoutineMapper.mapper.toRoutine(routineDAO.findByName(name));
+    }
+
+    @Override
     public List<Routine> getAllRoutine() {
         List<RoutineEntity> routineEntities = routineDAO.findAll();
         return RoutineMapper.mapper.toRoutineList(routineEntities);

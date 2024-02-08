@@ -9,4 +9,6 @@ import java.util.Optional;
 
 @Repository
 public interface RoutineDAO extends JpaRepository<RoutineEntity, Integer> {
+
+    public RoutineEntity findByName(String name);
 }

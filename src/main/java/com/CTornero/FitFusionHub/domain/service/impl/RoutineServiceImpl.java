@@ -29,7 +29,7 @@ public class RoutineServiceImpl implements RoutineService {
         routineRepository.deleteRoutine(routine);
     }
 
-    //Validación en servicio -> Pasado a etiqueta personalizada
+    //Validación de lista de duplicados en servicio -> Pasado a etiqueta personalizada
     /*private boolean hasDuplicates(List<Integer> ids) {
         Set<Integer> set = new HashSet<>();
         for (Integer id : ids) {
@@ -45,6 +45,10 @@ public class RoutineServiceImpl implements RoutineService {
         }*/
 
     private Routine save(Routine routine, List<Integer> exerciseListIds){
+        Routine existingRoutine = routineRepository.findByName(routine.getName());
+        if (existingRoutine != null){
+            throw new RuntimeException("La rutina ya existe");
+        }
         List<Exercise> exercises = exerciseListIds.stream()
                 .map(exerciseID -> exerciseRepository.findById(exerciseID).orElseThrow(() -> new RuntimeException("No se ha encontrado el ejercicio con el id " + exerciseID)))
                 .toList();

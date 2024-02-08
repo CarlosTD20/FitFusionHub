@@ -26,15 +26,7 @@ public class ExerciseServiceImpl implements ExerciseService {
         exerciseRepository.deleteExercise(exercise);
     }
 
-    @Override
-    public Exercise updateExercise(Exercise exercise, int muscleId) {
-        Muscle muscle = muscleRepository.findById(muscleId).orElseThrow(() -> new RuntimeException("No se ha encontrado el músculo con el id " + muscleId));
-        exercise.setMuscle(muscle);
-        return exerciseRepository.updateExercise(exercise);
-    }
-
-    @Override
-    public Exercise insertExercise(Exercise exercise, int muscleId) {
+    private Exercise save(Exercise exercise, int muscleId){
         Exercise existingExercise = exerciseRepository.findByName(exercise.getName());
         if (existingExercise != null){
             throw new RuntimeException("El ejercicio ya existe");
@@ -43,7 +35,17 @@ public class ExerciseServiceImpl implements ExerciseService {
         Muscle muscle = muscleRepository.findById(muscleId).orElseThrow(() -> new RuntimeException("No se ha encontrado el músculo con el id " + muscleId));
         exercise.setMuscle(muscle);
         validate(exercise);
-        return exerciseRepository.insertExercise(exercise);
+        return exerciseRepository.saveExercise(exercise);
+    }
+
+    @Override
+    public Exercise updateExercise(Exercise exercise, int muscleId) {
+        return save(exercise,muscleId);
+    }
+
+    @Override
+    public Exercise insertExercise(Exercise exercise, int muscleId) {
+        return save(exercise,muscleId);
     }
 
     @Override

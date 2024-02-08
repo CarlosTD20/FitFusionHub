@@ -13,7 +13,6 @@ public class Exercise {
     private String description;
 
     @NotNull(message = "Tienes que asignarle un músculo")
-    @NotBlank(message = "Tienes que asignarle un músculo")
     private Muscle muscle;
 
 

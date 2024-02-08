@@ -26,14 +26,8 @@ public class ExerciseRepositoryImpl implements ExerciseRepository {
     }
 
     @Override
-    public Exercise updateExercise(Exercise exercise) {
-        ExerciseEntity exerciseEntity = exerciseDAO.save(ExerciseMapper.mapper.toExerciseEntity(exercise));
-        return ExerciseMapper.mapper.toExercise(exerciseEntity);
-    }
-
-    @Override
     @Transactional
-    public Exercise insertExercise(Exercise exercise) {
+    public Exercise saveExercise(Exercise exercise) {
         ExerciseEntity exerciseEntity = exerciseDAO.save(ExerciseMapper.mapper.toExerciseEntity(exercise));
         return ExerciseMapper.mapper.toExercise(exerciseEntity);
     }

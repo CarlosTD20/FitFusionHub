@@ -8,8 +8,7 @@ import java.util.Optional;
 public interface ExerciseRepository {
 
     public void deleteExercise(Exercise exercise);
-    public Exercise updateExercise(Exercise exercise);
-    public Exercise insertExercise(Exercise exercise);
+    public Exercise saveExercise(Exercise exercise);
     public List<Exercise> getAllExercise(Integer page, Integer pageSize);
     public Optional<Exercise> findById(int id);
     public Exercise findByName(String name);

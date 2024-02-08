@@ -1,12 +1,23 @@
 package com.CTornero.FitFusionHub.domain.entity;
 
+import com.CTornero.FitFusionHub.Validation.ValidExerciseList;
+import jakarta.validation.constraints.Max;
+import jakarta.validation.constraints.Min;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
+
 import java.util.List;
 
 public class Routine {
     
     private int id;
+
+    @NotNull
     private String name;
     private String description;
+    @NotNull
+    @Size(min = 4,max = 8 ,message = "La rutina tiene que contener entre 2 y 8 ejercicios")
+    @ValidExerciseList(field = "exercise")
     private List<Exercise> exercise;
 
 

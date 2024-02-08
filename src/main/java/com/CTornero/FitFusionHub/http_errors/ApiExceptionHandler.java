@@ -1,5 +1,6 @@
 package com.CTornero.FitFusionHub.http_errors;
 
+import jakarta.validation.ValidationException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.converter.HttpMessageNotReadableException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
@@ -13,29 +14,37 @@ import com.CTornero.FitFusionHub.exception.ResourceNotFoundException;
 public class ApiExceptionHandler {
 
     // Maneja excepciones de tipo ResourceNotFoundException
-    @ResponseStatus(HttpStatus.NOT_FOUND) // Establece el código de estado de respuesta HTTP como "404 Not Found"
-    @ExceptionHandler({ // Define que este método manejará excepciones de tipo ResourceNotFoundException
+    @ResponseStatus(HttpStatus.NOT_FOUND)
+    @ExceptionHandler({
             ResourceNotFoundException.class
     })
-    @ResponseBody // Indica que el valor devuelto por este método se debe incluir en el cuerpo de la respuesta HTTP
-    public ErrorMessage notFoundRquest(Exception exception){
-        return  new ErrorMessage(exception.getMessage(),HttpStatus.NOT_FOUND.value());// Crea un objeto ErrorMessage con el mensaje de la excepción y el código de estado "404"
+    @ResponseBody
+    public ErrorMessage notFoundRequest(Exception exception) {
+        return new ErrorMessage(exception.getMessage(), HttpStatus.NOT_FOUND.value());
     }
 
-    // Maneja excepciones de tipo Exception (excepciones generales)
-    @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR) // Establece el código de estado de respuesta HTTP como "500 Internal Server Error"
+    @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
     @ExceptionHandler({
-            Exception.class // Define que este método manejará excepciones de tipo Exception
+            Exception.class
     })
-    @ResponseBody // Indica que el valor devuelto por este método se debe incluir en el cuerpo de la respuesta HTTP
-    public ErrorMessage exception(Exception exception){
-        exception.printStackTrace(); // Imprime la traza de la excepción en la consola (esto es útil para el diagnóstico)
-        return new ErrorMessage("Internal error", HttpStatus.INTERNAL_SERVER_ERROR.value()); // Crea un objeto ErrorMessage con un mensaje genérico de "Internal error" y el código de estado "500"
+
+    @ResponseBody
+    public ErrorMessage badRequest(Exception exception) {
+        return new ErrorMessage(exception.getMessage(), HttpStatus.BAD_REQUEST.value());
     }
+    @ResponseStatus(HttpStatus.BAD_REQUEST)
+    @ExceptionHandler({
+            ValidationException.class
+    })
+    @ResponseBody
+    public ErrorMessage exception(Exception exception) {
+        return new ErrorMessage(exception.getMessage(), HttpStatus.BAD_REQUEST.value());
+    }
+
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     @ExceptionHandler(HttpMessageNotReadableException.class)
     @ResponseBody
-    public ErrorMessage badRequest(HttpMessageNotReadableException exception){
-        return new ErrorMessage("Invalid request body",HttpStatus.BAD_REQUEST.value());
+    public ErrorMessage badRequest(HttpMessageNotReadableException exception) {
+        return new ErrorMessage("Invalid request body", HttpStatus.BAD_REQUEST.value());
     }
 }

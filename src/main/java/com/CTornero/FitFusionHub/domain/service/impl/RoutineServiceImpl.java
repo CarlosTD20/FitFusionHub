@@ -1,5 +1,6 @@
 package com.CTornero.FitFusionHub.domain.service.impl;
 
+import com.CTornero.FitFusionHub.Validation.ValidExerciseList;
 import com.CTornero.FitFusionHub.domain.entity.Exercise;
 import com.CTornero.FitFusionHub.domain.entity.Routine;
 import com.CTornero.FitFusionHub.domain.repository.ExerciseRepository;
@@ -8,7 +9,11 @@ import com.CTornero.FitFusionHub.domain.service.RoutineService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
+
+import static com.CTornero.FitFusionHub.Validation.Validation.validate;
 
 @Service
 public class RoutineServiceImpl implements RoutineService {
@@ -33,12 +38,28 @@ public class RoutineServiceImpl implements RoutineService {
         return routineRepository.updateRoutine(routine);
     }
 
+    /*private boolean hasDuplicates(List<Integer> ids) {
+        Set<Integer> set = new HashSet<>();
+        for (Integer id : ids) {
+            if (!set.add(id)) {
+                return true; // Se encontró un elemento duplicado
+            }
+        }
+        return false; // No se encontraron elementos duplicados
+    }*/
+
+
     @Override
     public Routine insertRoutine(Routine routine, List<Integer> exerciseListIds) {
+
+        /*if (hasDuplicates(exerciseListIds)) {
+            throw new RuntimeException("La lista de IDs de ejercicio contiene elementos duplicados.");
+        }*/
         List<Exercise> exercises = exerciseListIds.stream()
                 .map(exerciseID -> exerciseRepository.findById(exerciseID).orElseThrow(() -> new RuntimeException("No se ha encontrado el ejercicio con el id " + exerciseID)))
                 .toList();
         routine.setExercise(exercises);
+        validate(routine);
         return routineRepository.insertRoutine(routine);
     }
 

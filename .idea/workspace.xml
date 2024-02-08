@@ -4,67 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8ce752a0-2e27-43fd-8722-4afb9ba5c38a" name="Changes" comment="added @CrossOrigin, to be able to make requests from the client to the backend">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.mvn/wrapper/maven-wrapper.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.mvn/wrapper/maven-wrapper.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mvnw" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mvnw.cmd" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/CTornero/FitFusionHub/FitFusionHubApplication.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/CTornero/FitFusionHub/Validation/ExerciseValidator.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/CTornero/FitFusionHub/Validation/ValidExerciseList.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/CTornero/FitFusionHub/Validation/Validation.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/CTornero/FitFusionHub/controller/ExerciseController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/CTornero/FitFusionHub/controller/MainController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/CTornero/FitFusionHub/controller/Model/exercise/ExerciseCreateWeb.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/CTornero/FitFusionHub/controller/Model/exercise/ExerciseDetailWeb.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/CTornero/FitFusionHub/controller/Model/exercise/ExerciseListWeb.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/CTornero/FitFusionHub/controller/Model/exercise/ExerciseUpdateWeb.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/CTornero/FitFusionHub/controller/Model/muscle/MuscleDetailWeb.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/CTornero/FitFusionHub/controller/Model/muscle/MuscleListWeb.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/CTornero/FitFusionHub/controller/Model/routine/RoutineCreateWeb.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/CTornero/FitFusionHub/controller/Model/routine/RoutineDetailWeb.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/CTornero/FitFusionHub/controller/Model/routine/RoutineListWeb.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/CTornero/FitFusionHub/controller/Model/routine/RoutineUpdateWeb.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/CTornero/FitFusionHub/controller/MuscleController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/CTornero/FitFusionHub/controller/RoutineController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/CTornero/FitFusionHub/db/bbdd-proyecto-v2.sql" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/CTornero/FitFusionHub/db/registros-FitFusionHub.sql" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/CTornero/FitFusionHub/domain/entity/Exercise.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/CTornero/FitFusionHub/domain/entity/Muscle.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/CTornero/FitFusionHub/domain/entity/Routine.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/CTornero/FitFusionHub/domain/repository/ExerciseRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/CTornero/FitFusionHub/domain/repository/MuscleRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/CTornero/FitFusionHub/domain/repository/RoutineRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/CTornero/FitFusionHub/domain/service/ExerciseService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/CTornero/FitFusionHub/domain/service/MuscleService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/CTornero/FitFusionHub/domain/service/RoutineService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/CTornero/FitFusionHub/domain/service/impl/ExerciseServiceImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/CTornero/FitFusionHub/domain/service/impl/MuscleServiceImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/CTornero/FitFusionHub/domain/service/impl/RoutineServiceImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/CTornero/FitFusionHub/exception/DBConnectionException.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/CTornero/FitFusionHub/exception/ResourceNotFoundException.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/CTornero/FitFusionHub/exception/SQLStatmentException.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/CTornero/FitFusionHub/http_errors/ApiExceptionHandler.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/CTornero/FitFusionHub/http_errors/ErrorMessage.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/CTornero/FitFusionHub/http_response/Response.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/CTornero/FitFusionHub/mapper/ExerciseMapper.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/CTornero/FitFusionHub/mapper/MuscleMapper.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/CTornero/FitFusionHub/mapper/RoutineMapper.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/CTornero/FitFusionHub/persistence/dao/ExerciseDAO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/CTornero/FitFusionHub/persistence/dao/MuscleDAO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/CTornero/FitFusionHub/persistence/dao/RoutineDAO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/CTornero/FitFusionHub/persistence/impl/ExerciseRepositoryImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/CTornero/FitFusionHub/persistence/impl/MuscleRepositoryImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/CTornero/FitFusionHub/persistence/impl/RoutineRepositoryImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/CTornero/FitFusionHub/persistence/model/ExerciseEntity.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/CTornero/FitFusionHub/persistence/model/MuscleEntity.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/CTornero/FitFusionHub/persistence/model/RoutineEntity.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/CTornero/FitFusionHub/FitFusionHubApplicationTests.java" beforeDir="false" />
-    </list>
+    <list default="true" id="8ce752a0-2e27-43fd-8722-4afb9ba5c38a" name="Changes" comment="new structure for the project" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -117,25 +57,25 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
-    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
-    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
-    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/carlo/dev/depliegueAutomatico/logongas-despliegue&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.general&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "master",
+    "last_opened_file_path": "C:/Users/carlo/dev/FitFusinHub/back",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "settings.editor.selected.configurable": "preferences.general",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\carlo\dev\FitFusinHub\src\main\java\com\CTornero\FitFusionHub\http_errors" />
@@ -190,7 +130,7 @@
       <workItem from="1706775218226" duration="6796000" />
       <workItem from="1706873364384" duration="7065000" />
       <workItem from="1707217399626" duration="19550000" />
-      <workItem from="1707394573305" duration="2083000" />
+      <workItem from="1707394573305" duration="2260000" />
     </task>
     <task id="LOCAL-00001" summary="new dependecncy">
       <option name="closed" value="true" />
@@ -376,7 +316,15 @@
       <option name="project" value="LOCAL" />
       <updated>1707396659654</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="new structure for the project">
+      <option name="closed" value="true" />
+      <created>1707397866400</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1707397866400</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -405,6 +353,7 @@
     <MESSAGE value="refactored code of routines" />
     <MESSAGE value="validation to not repeat routines" />
     <MESSAGE value="added @CrossOrigin, to be able to make requests from the client to the backend" />
-    <option name="LAST_COMMIT_MESSAGE" value="added @CrossOrigin, to be able to make requests from the client to the backend" />
+    <MESSAGE value="new structure for the project" />
+    <option name="LAST_COMMIT_MESSAGE" value="new structure for the project" />
   </component>
 </project>

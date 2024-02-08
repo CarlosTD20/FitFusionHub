@@ -60,6 +60,11 @@ public class ExerciseRepositoryImpl implements ExerciseRepository {
     }
 
     @Override
+    public Exercise findByName(String name) {
+        return ExerciseMapper.mapper.toExercise(exerciseDAO.findByName(name));
+    }
+
+    @Override
     public List<Exercise> findByMuscleId(int muscleId) {
         return ExerciseMapper.mapper.toExerciseList(exerciseDAO.findByMuscleEntityId(muscleId));
     }

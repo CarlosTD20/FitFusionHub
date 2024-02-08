@@ -10,6 +10,8 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+import static com.CTornero.FitFusionHub.Validation.Validation.validate;
+
 @Service
 public class ExerciseServiceImpl implements ExerciseService {
 
@@ -33,8 +35,14 @@ public class ExerciseServiceImpl implements ExerciseService {
 
     @Override
     public Exercise insertExercise(Exercise exercise, int muscleId) {
+        Exercise existingExercise = exerciseRepository.findByName(exercise.getName());
+        if (existingExercise != null){
+            throw new RuntimeException("El ejercicio ya existe");
+        }
+
         Muscle muscle = muscleRepository.findById(muscleId).orElseThrow(() -> new RuntimeException("No se ha encontrado el músculo con el id " + muscleId));
         exercise.setMuscle(muscle);
+        validate(exercise);
         return exerciseRepository.insertExercise(exercise);
     }
 

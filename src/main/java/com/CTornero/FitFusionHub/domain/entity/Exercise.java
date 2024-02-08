@@ -1,10 +1,19 @@
 package com.CTornero.FitFusionHub.domain.entity;
 
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
+
 public class Exercise {
 
     private int id;
+    @NotBlank(message = "El nombre no puede estar en blanco")
     private String name;
+
+    @NotBlank(message = "La descripción no puede estar en blanco")
     private String description;
+
+    @NotNull(message = "Tienes que asignarle un músculo")
+    @NotBlank(message = "Tienes que asignarle un músculo")
     private Muscle muscle;
 
 

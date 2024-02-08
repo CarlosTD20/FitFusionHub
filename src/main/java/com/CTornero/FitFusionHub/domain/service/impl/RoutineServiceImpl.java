@@ -29,15 +29,7 @@ public class RoutineServiceImpl implements RoutineService {
         routineRepository.deleteRoutine(routine);
     }
 
-    @Override
-    public Routine updateRoutine(Routine routine, List<Integer> exerciseListIds) {
-        List<Exercise> exercises = exerciseListIds.stream()
-                .map(exerciseID -> exerciseRepository.findById(exerciseID).orElseThrow(() -> new RuntimeException("No se ha encontrado el ejercicio con el id " + exerciseID)))
-                .toList();
-        routine.setExercise(exercises);
-        return routineRepository.updateRoutine(routine);
-    }
-
+    //Validación en servicio -> Pasado a etiqueta personalizada
     /*private boolean hasDuplicates(List<Integer> ids) {
         Set<Integer> set = new HashSet<>();
         for (Integer id : ids) {
@@ -48,19 +40,27 @@ public class RoutineServiceImpl implements RoutineService {
         return false; // No se encontraron elementos duplicados
     }*/
 
-
-    @Override
-    public Routine insertRoutine(Routine routine, List<Integer> exerciseListIds) {
-
-        /*if (hasDuplicates(exerciseListIds)) {
+    /*if (hasDuplicates(exerciseListIds)) {
             throw new RuntimeException("La lista de IDs de ejercicio contiene elementos duplicados.");
         }*/
+
+    private Routine save(Routine routine, List<Integer> exerciseListIds){
         List<Exercise> exercises = exerciseListIds.stream()
                 .map(exerciseID -> exerciseRepository.findById(exerciseID).orElseThrow(() -> new RuntimeException("No se ha encontrado el ejercicio con el id " + exerciseID)))
                 .toList();
         routine.setExercise(exercises);
         validate(routine);
-        return routineRepository.insertRoutine(routine);
+        return routineRepository.saveRoutine(routine);
+    }
+
+    @Override
+    public Routine updateRoutine(Routine routine, List<Integer> exerciseListIds) {
+        return save(routine,exerciseListIds);
+    }
+
+    @Override
+    public Routine insertRoutine(Routine routine, List<Integer> exerciseListIds) {
+        return save(routine,exerciseListIds);
     }
 
     @Override

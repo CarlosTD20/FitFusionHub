@@ -27,7 +27,7 @@ import org.springframework.web.context.request.ServletRequestAttributes;
 public class Response {
 
     private Object data;
-    @JsonProperty("total records") //Ejercicio ApiRest UD2, Ejercicio 3 indica cómo deberá entenderse cada atributo del json.
+    //@JsonProperty("total records") //Ejercicio ApiRest UD2, Ejercicio 3 indica cómo deberá entenderse cada atributo del json.
     private Integer totalRecords;
     private Integer page;
     @JsonProperty("page size") //Ejercicio ApiRest UD2, Ejercicio 3 indica cómo deberá entenderse cada atributo del json.

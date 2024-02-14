@@ -1,0 +1,29 @@
+<!-- Lista Ejercicios -->
+<div style="background-color: green;">
+  <h2>LIstado de ejercicios</h2>
+  <div *ngFor="let exercise of exercises">
+    <p>{{exercise.id}}</p>
+    <p>{{exercise.name}}</p>
+  </div>
+</div>
+
+<!-- Detalle Ejercicios -->
+<div style="background-color: rebeccapurple; color: white;">
+  <h2>Exercise</h2>
+  <p>{{detailExercise.id}}</p>
+  <p>{{detailExercise.name}}</p>
+  <p>{{detailExercise.description}}</p>
+  <h2>Muscle:</h2>
+  <p>{{detailExercise.muscle.id}}</p>
+  <p>{{detailExercise.muscle.name}}</p>
+</div>
+
+<!-- Detalle Musculo -->
+<div style="background-color: skyblue;">
+  <h1>{{muscle.id}}</h1>
+  <h2>{{muscle.name}}</h2>
+  <div *ngFor="let exercise of muscle.exercise">
+    <p>{{exercise.id}}</p>
+    <p>{{exercise.name}}</p>
+  </div>
+</div>

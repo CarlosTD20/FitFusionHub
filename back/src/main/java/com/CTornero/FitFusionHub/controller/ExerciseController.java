@@ -19,7 +19,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/exercises")
-@CrossOrigin(origins = "http://localhost:4200")
+//@CrossOrigin(origins = "http://localhost:4200")
 public class ExerciseController {
 
     @Value("${LIMIT}")

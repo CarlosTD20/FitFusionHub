@@ -1,8 +1,11 @@
-import { Exercise } from "./exercise";
+export interface RoutineList{
+    id: number,
+    name: string
+}
 
-export interface Routine {
+export interface RoutineDetail {
     id: number,
     name: string,
     description: string,
-    exercises: Exercise
+    exercise:any[]
 }

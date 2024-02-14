@@ -1,8 +1,11 @@
-import { Exercise } from "./exercise";
+export interface MuscleList{
+    id: number,
+    name: string
+}
 
-export interface Muslce {
+export interface MuscleDetail {
     id: number,
     name: string,
     description: string,
-    exercises: Exercise
+    exercise:any[]
 }

@@ -1,8 +1,13 @@
-import { Muslce } from "./muscle";
+import { MuscleDetail } from "./muscle";
 
-export interface Exercise {
+export interface ExerciseList {
     id: number,
     name: string,
-    desciption: string,
-    muscles: Muslce
+}
+
+export interface ExerciseDetail{
+    id: number,
+    name: string,
+    description: string,
+    muscle: MuscleDetail
 }

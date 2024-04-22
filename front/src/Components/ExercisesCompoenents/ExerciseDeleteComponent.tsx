@@ -35,19 +35,22 @@ export default function DeleteExercise() {
         } catch (error) {
             console.error('Error deleting exercise:', error);
         }
+        window.location.reload();
     };
 
     return (
-        <div>
-            <h1>Delete Exercise</h1>
-            <p>Quieres eliminar el ejercicio: {selectedExercise?.name}</p>
-            <div className="flex flex-row justify-center gap-12 items-center p-8">
-                <Link to={`/exercises`}>
-                    <button className="bg-red-700 w-16 h-10 rounded" onClick={handleDeleteExercise}>Eliminar</button>
-                </Link>
-                <Link to={`/exercises/${params.id}`}>
-                    <button className="bg-yellow-500 w-16 h-10 rounded">Cancelar</button>
-                </Link>
+        <div className="flex flex-col justify-center items-center">
+            <h1 className="text-cyan-900 text-3xl m-8">Eliminar Ejercicio</h1>
+            <div className="border border-gray-300 rounded-lg p-8 shadow-md bg-gray-400">
+                <p className="text-lg font-semibold mb-1">Quieres eliminar el ejercicio: {selectedExercise?.name}</p>
+                <div className="flex flex-row justify-center gap-12 items-center">
+                    <Link to={`/exercises`}>
+                        <button className="w-36 h-12 rounded-lg text-xl text-white bg-red-700 hover:bg-red-600" onClick={handleDeleteExercise}>Eliminar</button>
+                    </Link>
+                    <Link to={`/exercises/${params.id}`}>
+                        <button className="w-36 h-12 rounded-lg text-xl text-white bg-green-700 hover:bg-green-600 mr-4">Cancelar</button>
+                    </Link>
+                </div>
             </div>
         </div>
     );

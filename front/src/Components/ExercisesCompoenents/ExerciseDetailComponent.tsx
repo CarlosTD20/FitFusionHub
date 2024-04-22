@@ -5,7 +5,7 @@ import { Link, useParams } from "react-router-dom";
 
 export default function DetailExercise() {
 
-    const {id} = useParams();
+    const { id } = useParams();
 
     const [selectedExercise, setSelectedExercise] = useState<ExerciseDetail | null>(null);
 
@@ -27,25 +27,24 @@ export default function DetailExercise() {
 
     return (
         <div className="flex flex-col justify-center items-center">
-            <h1 className="text-cyan-950 text-3xl mb-4">Detail Exercise</h1>
+            <h1 className="text-cyan-900 text-3xl m-8">Detalle del Ejercicio</h1>
 
             {selectedExercise && (
-
-                <div>
-                    <div>
-                        <p>ID:<span> {selectedExercise.id}</span></p>
-                        <p>Name:<span> {selectedExercise.name}</span></p>
-                        <p>Description: {selectedExercise.description}</p>
-                        <p>Muscle ID: {selectedExercise.muscle?.id}</p>
-                        <p>Muscle Name: {selectedExercise.muscle?.name}</p>
-                    </div>
-                    <div className="flex flex-row justify-center gap-12 items-center p-8">
-                        <Link to={`/exercises/update/${id}`}>
-                            <button className="bg-green-700 w-16 h-10 rounded">Editar</button>
-                        </Link>
-                        <Link to={`/exercises/delete/${id}`}>
-                            <button className="bg-red-700 w-16 h-10 rounded">Eliminar</button>
-                        </Link>
+                <div className="flex flex-col justify-center items-center m-10">
+                    <div className="border border-gray-300 rounded-lg p-8 shadow-md bg-gray-400">
+                        <div className="mb-4">
+                            <p className="text-lg font-semibold mb-1">Name: <span className="font-normal">{selectedExercise.name}</span></p>
+                            <p className="text-lg font-semibold mb-1">Description: <span className="font-normal">{selectedExercise.description}</span></p>
+                            <p className="text-lg font-semibold mb-1">Muscle Name: <span className="font-normal">{selectedExercise.muscle?.name}</span></p>
+                        </div>
+                        <div className="flex flex-row justify-center gap-12 items-center">
+                            <Link to={`/exercises/update/${id}`}>
+                                <button className="w-36 h-12 rounded-lg text-xl text-white bg-green-700 hover:bg-green-600 mr-4">Editar</button>
+                            </Link>
+                            <Link to={`/exercises/delete/${id}`}>
+                                <button className="w-36 h-12 rounded-lg text-xl text-white bg-red-700 hover:bg-red-600">Eliminar</button>
+                            </Link>
+                        </div>
                     </div>
                 </div>
             )}

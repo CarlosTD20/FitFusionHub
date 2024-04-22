@@ -27,9 +27,15 @@ public class ExerciseServiceImpl implements ExerciseService {
     }
 
     private Exercise save(Exercise exercise, int muscleId){
-        Exercise existingExercise = exerciseRepository.findByName(exercise.getName());
-        if (existingExercise != null){
-            throw new RuntimeException("El ejercicio ya existe");
+        if (exercise.getId() == 0) {
+            Exercise existingExercise = exerciseRepository.findByName(exercise.getName());
+            if (existingExercise != null){
+                throw new RuntimeException("El ejercicio ya existe");
+            }
+        }
+
+        if (muscleId == 0) {
+            throw new RuntimeException("El ID del músculo es obligatorio para guardar el ejercicio");
         }
 
         Muscle muscle = muscleRepository.findById(muscleId).orElseThrow(() -> new RuntimeException("No se ha encontrado el músculo con el id " + muscleId));

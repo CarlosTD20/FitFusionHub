@@ -42,7 +42,7 @@ export default function DeleteExercise() {
         <div className="flex flex-col justify-center items-center">
             <h1 className="text-cyan-900 text-3xl m-8">Eliminar Ejercicio</h1>
             <div className="border border-gray-300 rounded-lg p-8 shadow-md bg-gray-400">
-                <p className="text-lg font-semibold mb-1">Quieres eliminar el ejercicio: {selectedExercise?.name}</p>
+                <p className="text-lg font-semibold m-4">Quieres eliminar el ejercicio: {selectedExercise?.name}</p>
                 <div className="flex flex-row justify-center gap-12 items-center">
                     <Link to={`/exercises`}>
                         <button className="w-36 h-12 rounded-lg text-xl text-white bg-red-700 hover:bg-red-600" onClick={handleDeleteExercise}>Eliminar</button>

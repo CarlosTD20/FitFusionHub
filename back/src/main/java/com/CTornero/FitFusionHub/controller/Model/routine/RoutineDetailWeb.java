@@ -13,5 +13,5 @@ public class RoutineDetailWeb {
     private String name;
     private String description;
 
-    private List<ExerciseListWeb> exerciseListWebs;
+    private List<ExerciseListWeb> exercise;
 }

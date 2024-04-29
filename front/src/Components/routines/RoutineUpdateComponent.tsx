@@ -1,57 +1,62 @@
-import { useEffect, useState } from "react";
-import { fetchData, fetchItemById, updateItem } from "../../service/DataApi";
-import { Link, useParams } from "react-router-dom";
-import { Exercise, ExerciseList } from "../../interfaces/Exercises";
-import { RoutineDetail, RoutineMock } from "../../interfaces/Routines";
+import { useEffect, useState } from "react"
+import { fetchData, fetchItemById, updateItem } from "../../service/DataApi"
+import { Link, useParams } from "react-router-dom"
+import { Exercise, ExerciseList } from "../../interfaces/Exercises"
+import { RoutineDetail, RoutineMock } from "../../interfaces/Routines"
 
 
 function RoutineUpdate() {
 
-    const { id } = useParams();
+    const { id } = useParams()
 
     const [routineData, setRoutineData] = useState<RoutineDetail>({
         id: 0,
         name: '',
         description: '',
         exercise: []
-    });
+    })
 
-    const [exercises, setExercises] = useState<Exercise[]>([]);
-    const [selectedExerciseIds, setSelectedExerciseIds] = useState<number[]>([]);
+    const [exercises, setExercises] = useState<Exercise[]>([])
+    const [selectedExerciseIds, setSelectedExerciseIds] = useState<number[]>([])
+    const [error, setError] = useState<string>("")
 
     useEffect(() => {
         const fetchRoutineDetails = async () => {
             try {
-                const response = await fetchItemById<RoutineDetail>('routines', id);
-                const detail = response.data;
-                setRoutineData(detail);
+                const response = await fetchItemById<RoutineDetail>('routines', id)
+                const detail = response.data
+                setRoutineData(detail)
                 setSelectedExerciseIds(detail.exercises?.map((exercise: Exercise) => exercise.id) || [])
             } catch (error) {
-                console.error('Error fetching routine detail:', error);
+                console.error('Error fetching routine detail:', error)
+                setError(error.response.data.message)
             }
-        };
+        }
 
-        fetchRoutineDetails();
+        fetchRoutineDetails()
 
         fetchData<ExerciseList>('exercises')
             .then((response) => {
-                setExercises(response.data);
+                setExercises(response.data)
                 setSelectedExerciseIds(response.data.map((exercise: Exercise) => exercise.id))
             })
-            .catch(error => console.error('Error fetching exercises:', error));
+            .catch(error => {
+                console.error('Error fetching exercises:', error)
+                setError(error.response.data.message)
+            })
 
-    }, [id]);
+    }, [id])
 
     useEffect(() => {
-        setSelectedExerciseIds(prevIds => prevIds.filter(id => routineData.exercise.some((exercise: Exercise) => exercise.id === id)));
-    }, [routineData]);
+        setSelectedExerciseIds(prevIds => prevIds.filter(id => routineData.exercise.some((exercise: Exercise) => exercise.id === id)))
+    }, [routineData])
 
     const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        const { name, value } = e.target;
+        const { name, value } = e.target
         setRoutineData(prevData => ({
             ...prevData,
             [name]: value
-        }));
+        }))
     }
 
     const handleUpdateRoutine = async () => {
@@ -61,10 +66,11 @@ function RoutineUpdate() {
                 description: routineData.description,
                 exerciseId: selectedExerciseIds
             }
-            await updateItem<RoutineMock>('routines', id, updatedRoutine);
-            console.log('Routine updated successfully');
+            await updateItem<RoutineMock>('routines', id, updatedRoutine)
+            console.log('Routine updated successfully')
         } catch (error) {
-            console.error('Error updating routine:', error);
+            console.error('Error updating routine:', error)
+            setError(error.response.data.message)
         }
     }
 

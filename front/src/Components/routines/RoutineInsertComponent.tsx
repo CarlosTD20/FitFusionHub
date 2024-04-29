@@ -22,7 +22,7 @@ function RoutineInsert() {
     fetchData<ExerciseList>('exercises')
       .then((response) => { setExercises(response.data) })
       .catch((error) => {
-        console.error("Error fetching exercises:", error);
+        console.error("Error fetching exercises:", error)
         setError(error.response.data.message)
       })
   }, [])

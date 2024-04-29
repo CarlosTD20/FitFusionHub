@@ -1,6 +1,6 @@
 import { BrowserRouter } from "react-router-dom"
 import Header from "./pages/Layout/Header"
-import RoutingComponent from "./pages/UIComponents/RoutingComponent"
+import RoutingComponent from "./routes/RoutingComponent"
 
 export default function App() {
 

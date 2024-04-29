@@ -15,7 +15,13 @@ interface RoutineDetail {
     id: number;
     name: string;
     description: string;
-    exerciseList: Exercise[];
+    exercise: Exercise[];
 }
 
-export type { RoutineList, Routine, RoutineDetail };
+interface RoutineMock {
+    name: string,
+    description: string,
+    exerciseId: number[]
+}
+
+export type { RoutineList, Routine, RoutineDetail, RoutineMock };

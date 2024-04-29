@@ -14,7 +14,7 @@ interface Muscle {
 interface MuscleDetail {
     id: number;
     name: string;
-    exercises: Exercise[];
+    exercise: Exercise[];
 }
 
 export type { MuscleList, Muscle, MuscleDetail };

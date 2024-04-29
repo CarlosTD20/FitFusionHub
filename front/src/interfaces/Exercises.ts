@@ -3,7 +3,7 @@
 import { Muscle } from "./Muscles";
 
 interface ExerciseList {
-    data: [];
+    data: Exercise[];
 }
 
 interface Exercise {
@@ -18,10 +18,10 @@ interface ExerciseDetail {
     muscle: Muscle
 }
 
-interface ExerciseInsert {
+interface ExerciseMock {
     name: string,
     description: string,
     muscleId: number
 }
 
-export type { ExerciseList, Exercise, ExerciseDetail, ExerciseInsert };
+export type { ExerciseList, Exercise, ExerciseDetail, ExerciseMock };

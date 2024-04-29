@@ -28,7 +28,7 @@ public interface RoutineMapper {
     @Mapping(target = "exerciseEntity", expression = "java(ExerciseMapper.mapper.toExerciseEntityList(routine.getExercise()))")
     RoutineEntity toRoutineEntity(Routine routine);
 
-    @Mapping(target = "exerciseListWebs", expression = "java(ExerciseMapper.mapper.toExerciseListWebList(routine.getExercise()))")
+    @Mapping(target = "exercise", expression = "java(ExerciseMapper.mapper.toExerciseListWebList(routine.getExercise()))")
     RoutineDetailWeb toRoutineDetailWeb(Routine routine);
 
     @Mapping(target = "exercise", ignore = true)

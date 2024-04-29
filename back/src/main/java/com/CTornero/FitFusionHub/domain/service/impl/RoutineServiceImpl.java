@@ -45,10 +45,13 @@ public class RoutineServiceImpl implements RoutineService {
         }*/
 
     private Routine save(Routine routine, List<Integer> exerciseListIds){
-        Routine existingRoutine = routineRepository.findByName(routine.getName());
-        if (existingRoutine != null){
-            throw new RuntimeException("La rutina ya existe");
+        if(routine.getId() == 0) {
+            Routine existingRoutine = routineRepository.findByName(routine.getName());
+            if (existingRoutine != null){
+                throw new RuntimeException("La rutina ya existe");
+            }
         }
+
         List<Exercise> exercises = exerciseListIds.stream()
                 .map(exerciseID -> exerciseRepository.findById(exerciseID).orElseThrow(() -> new RuntimeException("No se ha encontrado el ejercicio con el id " + exerciseID)))
                 .toList();

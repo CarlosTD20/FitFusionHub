@@ -11,11 +11,12 @@ import RoutinesDetail from "../Components/routines/RoutineDetailComponent"
 import RoutineInsert from "../Components/routines/RoutineInsertComponent"
 import RoutineUpdate from "../Components/routines/RoutineUpdateComponent"
 import RoutineDelete from "../Components/routines/RoutineDeleteComponent"
+import BodyBento from "../pages/Layout/BodyBento"
 
 function RoutingComponent() {
     return (
         <Routes>
-            <Route path='/' />
+            <Route path='/' element={<BodyBento />}/>
             <Route path='/exercises' element={<ExercisesList />} />
             <Route path='/exercises/:id' element={<ExercisesDetail />} />
             <Route path='/exercises/insert' element={<ExercisesInsert />} />

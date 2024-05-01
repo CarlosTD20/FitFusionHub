@@ -5,7 +5,21 @@ export default {
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        'fit-o': '#FFC635',
+        'fit-b': '#1A212B',
+        'fit-w': '#F6F8FB'
+      },
+      backgroundColor: {
+        'fit-o': '#FFC635',
+        'fit-b': '#1A212B',
+        'fit-w': '#F6F8FB'
+      },
+      fontFamily: {
+        archivo: ['Archivo Black', 'sans-serif']
+      }
+    },
   },
   plugins: [],
 }

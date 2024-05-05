@@ -9,12 +9,16 @@ export default {
       colors: {
         'fit-o': '#FFC635',
         'fit-b': '#1A212B',
-        'fit-w': '#F6F8FB'
+        'fit-w': '#F6F8FB',
+        'fit-g': '#9AA8BC',
+        'fit-r': '#FF4D35'
       },
       backgroundColor: {
         'fit-o': '#FFC635',
         'fit-b': '#1A212B',
-        'fit-w': '#F6F8FB'
+        'fit-w': '#F6F8FB',
+        'fit-g': '#9AA8BC',
+        'fit-r': '#FF4D35'
       },
       fontFamily: {
         archivo: ['Archivo Black', 'sans-serif']

@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react"
-import { Link, useParams } from "react-router-dom"
+import { useParams } from "react-router-dom"
 import { MuscleDetail } from "../../interfaces/Muscles"
 import { fetchItemById } from "../../service/DataApi"
-import SeeSVG from "../../pages/UIComponents/SDetailSVG"
+import Cards, { CardSize } from "../../pages/UIComponents/Cards"
 
 function MusclesDetail() {
 
@@ -24,30 +24,39 @@ function MusclesDetail() {
     handleSelectedMuscle()
   }, [id])
   return (
-    <div className="flex flex-col justify-center items-center">
-      <h1 className="text-cyan-900 text-3xl m-4">Detalle del Ejercicio</h1>
-
-      {selectedMuscle && (
-        <div className="flex flex-col justify-center items-center m-6 ">
-          <div className="border border-gray-300 rounded-lg p-8 shadow-md bg-gray-400">
-            <div className="mb-4">
-              <p className="text-lg font-semibold mb-1">Nombre: <span className="font-normal">{selectedMuscle.name}</span></p>
-              <p className="text-lg font-semibold mb-1">ejercicios:</p>
-              <ul>
-                {selectedMuscle.exercise.map((exercise) => (
-                  <li className="flex items-center" key={exercise.id}>
-                    <p className="mr-2">{exercise.name}</p>
-                    <Link to={`/exercises/${exercise.id}`}>
-                      <SeeSVG fill="#1D4ED8" />
-                    </Link>
-                  </li>
-                ))}
-              </ul>
+    <div className="flex justify-center items-center">
+      <div className="flex-col flex justify-center items-center h-[615px] w-[1224px] rounded-[24px] md:flex-row">
+        <div className="h-[584px] w-[473px] rounded-[24px] border bg-slate-100 m-[12px] flex flex-col shadow">
+          <h1 className="font-bold text-[42px] leading-[52px] pt-[16px] m-[20px]">Ejercicios del Músculo</h1>
+          <div className="flex justify-center items-center ">
+            <div className="flex flex-col justify-center items-center w-[360px] h-[400px] gap-[12px] overflow-x-auto">
+              {selectedMuscle && selectedMuscle.exercise.map((exercise) => (
+                <Cards key={exercise.id}
+                  size={CardSize.SMALL}
+                  imageUrl="https://s3-alpha-sig.figma.com/img/3b2d/6ecd/45a965288f215a28bc38014a0c363b61?Expires=1715558400&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=JlfLFq2ft9kaelHuI4B87TD6iC-LR6ylFDZTIMlUOjbQNLZ195uqv44yLj-E2rPx7YegW2cmWrwV51M~RufynKIkELWeXKx1-T58Bzfh6M1J9o6OHEalNVav3C~YJfaahcgmFAYRKv8-3lA4PJtTDyzEZIDL0D9JD8Qz~sWTwrHZtWdyCeMFvNpr5TJckJeR-tChjF7ksQ-iKnoHAuBXQUmpUVb6~S~72FqTUn2opxzPS99aOexj1kR3JswMGu8qgHXtiOx4Rvz5Su8f-jZJ1KrRFYV5KJH7CBkC90L9xu6Fvz-Eh4IeHFrfvk0N~Sqif8B9oUfKS1OVxizm4dzyBQ__"
+                  text={`${exercise.name}`}
+                  link={`/exercises/${exercise.id}`}
+                >
+                </Cards>
+              ))}
             </div>
           </div>
+
+
+
         </div>
-      )}
+        {selectedMuscle && (
+          <div className="h-screen flex items-center justify-center">
+            <div className="h-[584px] w-[726px] rounded-[24px] border bg-slate-100 m-[12px] flex justify-center items-center">
+              <h1 className="font-bold text-5xl leading-[52px] pt-[16px] m-[20px]"> {selectedMuscle.name}</h1>
+            </div>
+          </div>
+        )}
+      </div>
     </div>
+
+
+
   )
 }
 

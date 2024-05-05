@@ -10,7 +10,9 @@ const Header = () => {
                     <span className="text-fit-o text-[38px] font-600 font-archivo font-bold">Fusion</span>
                 </Link>
             </div>
-            <div className="h-[67px] w-[175px] rounded-[18px] bg-fit-o"></div>
+            <div className="h-[67px] w-[175px] rounded-[18px] bg-fit-o flex items-center justify-center">
+                <Link to="/routines" className="text-fit-b font-archivo font-semibold text-center m-[12px]">Empieza a Entrenar</Link>
+            </div>
         </div>
     )
 }

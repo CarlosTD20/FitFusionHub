@@ -29,7 +29,7 @@ function ExercisesDetail() {
         <div className="flex justify-center items-center">
             <div className="flex-col flex justify-center items-center h-[615px] w-[1224px] rounded-[24px] md:flex-row">
                 <div className="h-[584px] w-[473px] rounded-[24px] border bg-slate-100 m-[12px] flex flex-col shadow">
-                    <h1 className="font-bold text-[42px] leading-[52px] pt-[16px] m-[20px]">Detalle Ejercicio</h1>
+                    <h1 className="font-bold text-[42px] leading-[52px] pt-[16px] m-[20px] font-archivo ">Detalle Ejercicio</h1>
                     <div className="flex justify-center items-center">
                         <div className="flex flex-col justify-center items-center w-[360px] h-[360px] gap-[12px] overflow-x-auto">
 
@@ -45,8 +45,8 @@ function ExercisesDetail() {
                 </div>
                 <div className="h-[584px] w-[726px] rounded-[24px] border bg-slate-100 m-[12px] flex flex-col justify-between">
                     <div>
-                        <h1 className="font-bold text-[42px] leading-[52px] pt-[16px] m-[20px]">Ejercicio {selectedExercise?.name}</h1>
-                        <h2 className="text-[42px] leading-[52px] pt-[16px] m-[30px]">Descripción</h2>
+                        <h1 className="font-bold text-[42px] leading-[52px] pt-[16px] m-[20px] font-archivo ">Ejercicio {selectedExercise?.name}</h1>
+                        <h2 className="text-[42px] leading-[52px] pt-[16px] m-[30px] font-archivo font-semibold">Descripción</h2>
                         <p className="m-[26px] font-medium">{selectedExercise?.description}</p>
                     </div>
 

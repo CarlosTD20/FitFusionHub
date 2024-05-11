@@ -27,7 +27,7 @@ function MusclesDetail() {
     <div className="flex justify-center items-center">
       <div className="flex-col flex justify-center items-center h-[615px] w-[1224px] rounded-[24px] md:flex-row">
         <div className="h-[584px] w-[473px] rounded-[24px] border bg-slate-100 m-[12px] flex flex-col shadow">
-          <h1 className="font-bold text-[42px] leading-[52px] pt-[16px] m-[20px]">Ejercicios del Músculo</h1>
+          <h1 className="font-bold text-[42px] leading-[52px] pt-[16px] m-[20px] font-archivo ">Ejercicios del Músculo</h1>
           <div className="flex justify-center items-center ">
             <div className="flex flex-col justify-center items-center w-[360px] h-[400px] gap-[12px] overflow-x-auto">
               {selectedMuscle && selectedMuscle.exercise.map((exercise) => (
@@ -48,15 +48,12 @@ function MusclesDetail() {
         {selectedMuscle && (
           <div className="h-screen flex items-center justify-center">
             <div className="h-[584px] w-[726px] rounded-[24px] border bg-slate-100 m-[12px] flex justify-center items-center">
-              <h1 className="font-bold text-5xl leading-[52px] pt-[16px] m-[20px]"> {selectedMuscle.name}</h1>
+              <h1 className="font-bold text-5xl leading-[52px] pt-[16px] m-[20px] font-archivo"> {selectedMuscle.name}</h1>
             </div>
           </div>
         )}
       </div>
     </div>
-
-
-
   )
 }
 

@@ -15,7 +15,7 @@ function ExercisesList() {
 
     return (
         <div className="flex flex-col justify-center">
-            <h1 className="font-bold text-[42px] leading-[52px] pt-[16px] m-[20px] text-center">Listado de Ejercicios</h1>
+            <h1 className="font-bold text-[42px] leading-[52px] pt-[16px] m-[20px] text-center font-archivo">Listado de Ejercicios</h1>
             <div className="flex items-center justify-center">
                 <div className="flex max-w-[1224px] flex-wrap justify-center gap-4">
                     {exercises.map(exercise => (

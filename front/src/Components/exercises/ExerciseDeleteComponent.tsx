@@ -49,9 +49,9 @@ function ExercisesDelete() {
     return (
         <div className="flex justify-center items-center">
             <div className="flex flex-col justify-center items-center md:h-[500px] md:w-[1000px] lg:w-[1224px] rounded-[24px] bg-slate-100 shadow-md">
-                <h1 className="font-bold text-4xl text-fit-b font-archivo m-[48px] text-center">Eliminar Ejercicio</h1>
+                <h1 className="font-bold text-4xl text-fit-b m-[48px] text-center font-archivo ">Eliminar Ejercicio</h1>
                 <div className="border border-gray-300 rounded-lg p-8 shadow-md bg-fit-g">
-                    <p className="text-lg font-semibold text-center ">¿Quieres eliminar el ejercicio <span className="text-fit-r">{selectedExercise?.name}</span>?</p>
+                    <p className="text-lg  text-center font-archivo font-semibold">¿Quieres eliminar el ejercicio <span className="text-fit-r">{selectedExercise?.name}</span>?</p>
                     {errorMessage && <ErrorModal errorMessage={errorMessage} onClose={handleCloseModal} />}
                     <div className="flex flex-col justify-center items-center">
                         <div className="flex justify-center mt-8 md:mt-12 lg:gap-[48px]">

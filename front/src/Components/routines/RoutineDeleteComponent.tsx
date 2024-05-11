@@ -40,7 +40,7 @@ function RoutineDelete() {
             <div className="flex flex-col justify-center items-center md:h-[500px] md:w-[1000px] lg:w-[1224px] rounded-[24px] bg-slate-100 shadow-md">
                 <h1 className="font-bold text-4xl  text-fit-b font-archivo m-[48px] text-center">Eliminar Rutina</h1>
                 <div className="border border-gray-300 rounded-lg p-8 shadow-md bg-fit-g">
-                    <p className="text-lg font-semibold text-center ">¿Quieres eliminar la rutina <span className="text-fit-r">{selectedRoutine?.name}</span>?</p>
+                    <p className="text-lg font-semibold text-center font-archivo ">¿Quieres eliminar la rutina <span className="text-fit-r">{selectedRoutine?.name}</span>?</p>
                     <div className="flex flex-col justify-center items-center">
                         <div className="flex justify-center mt-8 md:mt-12 lg:gap-[48px]">
                             <Link to={`/routines`} className="w-[153px] h-[56px] md:w-[180px] md:h-[64px] rounded-[18px] bg-fit-o flex items-center justify-center text-fit-b font-semibold font-archivo" onClick={handleDeleteRoutine}>Eliminar</Link>

@@ -84,19 +84,19 @@ function RoutineUpdate() {
     return (
         <div className="flex justify-center items-center">
             <div className="flex flex-col justify-center items-center md:h-[650px] md:w-[900px] lg:w-[1224px] rounded-[24px] bg-slate-100 shadow-md">
-                <h1 className="font-bold text-3xl md:text-4xl text-fit-b m-8">Actualizar Rutina</h1>
+                <h1 className="font-bold text-3xl md:text-4xl text-fit-b m-8 font-archivo">Actualizar Rutina</h1>
                 <div className="flex flex-col justify-center items-center m-[24px] h-full md:h-auto">
                     <div className="flex flex-col justify-center items-center rounded-lg p-8 w-[80vw] md:w-[500px] lg:w-[726px] bg-fit-g md:mb-8">
                         <div className="mb-4">
-                            <label htmlFor="routineName" className="text-lg font-semibold mb-1 block">Nombre:</label>
+                            <label htmlFor="routineName" className="text-lg font-semibold mb-1 block font-archivo">Nombre:</label>
                             <input type="text" id="routineName" name="name" value={routineData.name} onChange={handleInputChange} className="border border-gray-400 rounded px-3 py-2 w-64" />
                         </div>
                         <div className="mb-4">
-                            <label htmlFor="routineDescription" className="text-lg font-semibold mb-1 block">Descripción:</label>
+                            <label htmlFor="routineDescription" className="text-lg font-semibold mb-1 block font-archivo">Descripción:</label>
                             <input type="text" id="routineDescription" name="description" value={routineData.description} onChange={handleInputChange} className="border border-gray-400 rounded px-3 py-2 w-64 resize-y" />
                         </div>
                         <div className="mb-4">
-                            <label htmlFor="routineExerciseIds" className="text-lg font-semibold mb-1 block">Ejercicios:</label>
+                            <label htmlFor="routineExerciseIds" className="text-lg font-semibold mb-1 block font-archivo">Ejercicios:</label>
                             <select multiple value={selectedExerciseIds.map(String)} onChange={e => setSelectedExerciseIds(Array.from(e.target.selectedOptions, (option: any) => option.value))} className="border border-gray-400 rounded px-3 py-2 w-64">
                                 <option value="">Seleccionar Ejercicios</option>
                                 {exercises.map(exercise => (

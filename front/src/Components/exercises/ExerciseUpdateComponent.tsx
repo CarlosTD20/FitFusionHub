@@ -75,19 +75,19 @@ function ExerciseUpdate() {
     return (
         <div className="flex justify-center items-center">
             <div className="flex flex-col justify-center items-center md:h-[615px] md:w-[900px] lg:w-[1224px] rounded-[24px] bg-slate-100 shadow-md">
-                <h1 className="font-bold text-3xl md:text-4xl text-fit-b m-8">Actualizar Ejercicio</h1>
+                <h1 className="font-bold text-3xl md:text-4xl text-fit-b m-8 font-archivo ">Actualizar Ejercicio</h1>
                 <div className="flex flex-col justify-center items-center m-[24px] h-full md:h-auto">
                     <div className="flex flex-col justify-center items-center rounded-lg p-8 w-[80vw] md:w-[500px] lg:w-[726px] bg-fit-g md:mb-8">
                         <div className="mb-4">
-                            <label htmlFor="exerciseName" className="block text-lg font-semibold mb-1">Nombre:</label>
+                            <label htmlFor="exerciseName" className="block text-lg font-semibold mb-1 font-archivo ">Nombre:</label>
                             <input type="text" id="exerciseName" name="name" value={exerciseData.name} onChange={handleInputChange} className="border border-gray-400 rounded px-3 py-2 w-64" />
                         </div>
                         <div className="mb-4">
-                            <label htmlFor="exerciseDescription" className="block text-lg font-semibold mb-1">Descripción:</label>
+                            <label htmlFor="exerciseDescription" className="block text-lg font-semibold mb-1 font-archivo ">Descripción:</label>
                             <input type="text" id="exerciseDescription" name="description" value={exerciseData.description} onChange={handleInputChange} className="border border-gray-400 rounded px-3 py-2 w-64 resize-y" />
                         </div>
                         <div className="mb-4">
-                            <label htmlFor="exerciseMuscleId" className="block text-lg font-semibold mb-1">Músculo:</label>
+                            <label htmlFor="exerciseMuscleId" className="block text-lg font-semibold mb-1 font-archivo ">Músculo:</label>
                             <select value={selectedMuscleId || ''} onChange={e => setSelectedMuscleId(e.target.value)} className="border border-gray-400 rounded px-3 py-2 w-64">
                                 <option value="">Selecionar Músculo</option>
                                 {muscles.map(muscle => (

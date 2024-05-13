@@ -47,8 +47,13 @@ function MusclesDetail() {
         </div>
         {selectedMuscle && (
           <div className="h-screen flex items-center justify-center">
-            <div className="h-[584px] w-[726px] rounded-[24px] border bg-slate-100 m-[12px] flex justify-center items-center">
+            <div className="h-[584px] w-[726px] rounded-[24px] border bg-slate-100 m-[12px] flex flex-col justify-center items-center">
               <h1 className="font-bold text-5xl leading-[52px] pt-[16px] m-[20px] font-archivo"> {selectedMuscle.name}</h1>
+              <img
+                src={`/src/assets/muscles/musculo-${selectedMuscle.id}.png`} 
+                alt={selectedMuscle.name}
+                className="w-[400px] h-auto bg-transparent rounded-[24px]"
+              />
             </div>
           </div>
         )}

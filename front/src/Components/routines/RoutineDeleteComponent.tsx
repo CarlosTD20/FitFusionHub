@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 import { Link, useParams } from "react-router-dom"
 import { RoutineDetail } from "../../interfaces/Routines"
-import { deleteItem, fetchItemById } from "../../service/DataApi"
+import { ResourceType, deleteItem, fetchItemById } from "../../service/DataApi"
 
 function RoutineDelete() {
 
@@ -11,7 +11,7 @@ function RoutineDelete() {
     useEffect(() => {
         const handleSelectRoutine = async () => {
             try {
-                const response = await fetchItemById<RoutineDetail>('routines', id)
+                const response = await fetchItemById<RoutineDetail>(ResourceType.ROUTINES, id)
                 const deatil = response.data
                 setSelectedRoutine(deatil)
             } catch (error) {
@@ -25,7 +25,7 @@ function RoutineDelete() {
     const handleDeleteRoutine = async () => {
         try {
             if (id != null) {
-                await deleteItem('routines', id)
+                await deleteItem(ResourceType.ROUTINES, id)
             } else {
                 console.error('Routine ID is null')
             }

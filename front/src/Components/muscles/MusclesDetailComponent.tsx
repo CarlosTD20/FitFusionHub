@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
 import { MuscleDetail } from "../../interfaces/Muscles"
-import { fetchItemById } from "../../service/DataApi"
+import { ResourceType, fetchItemById } from "../../service/DataApi"
 import Cards, { CardSize } from "../../pages/UIComponents/Cards"
 
 function MusclesDetail() {
@@ -13,7 +13,7 @@ function MusclesDetail() {
   useEffect(() => {
     const handleSelectedMuscle = async () => {
       try {
-        const response = await fetchItemById<MuscleDetail>('muscles', id)
+        const response = await fetchItemById<MuscleDetail>(ResourceType.MUSCLES, id)
         const detail = response.data
         console.log(detail?.id)
         setSelectedMuscle(detail)

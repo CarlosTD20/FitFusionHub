@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import { fetchData, fetchItemById, updateItem } from "../../service/DataApi"
+import { ResourceType, fetchData, fetchItemById, updateItem } from "../../service/DataApi"
 import { Link, useParams } from "react-router-dom"
 import { Exercise, ExerciseList } from "../../interfaces/Exercises"
 import { RoutineDetail, RoutineMock } from "../../interfaces/Routines"
@@ -24,7 +24,7 @@ function RoutineUpdate() {
     useEffect(() => {
         const fetchRoutineDetails = async () => {
             try {
-                const response = await fetchItemById<RoutineDetail>('routines', id)
+                const response = await fetchItemById<RoutineDetail>(ResourceType.ROUTINES, id)
                 const detail = response.data
                 setRoutineData(detail)
                 setSelectedExerciseIds(detail.exercises?.map((exercise: Exercise) => exercise.id) || [])
@@ -36,7 +36,7 @@ function RoutineUpdate() {
 
         fetchRoutineDetails()
 
-        fetchData<ExerciseList>('exercises')
+        fetchData<ExerciseList>(ResourceType.EXERCISES)
             .then((response) => {
                 setExercises(response.data)
                 setSelectedExerciseIds(response.data.map((exercise: Exercise) => exercise.id))

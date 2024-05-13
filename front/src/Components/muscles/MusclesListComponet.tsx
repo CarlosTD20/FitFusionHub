@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 import { Muscle, MuscleList } from "../../interfaces/Muscles"
-import { fetchData } from "../../service/DataApi"
+import { ResourceType, fetchData } from "../../service/DataApi"
 import Cards, { CardSize } from "../../pages/UIComponents/Cards"
 
 function MusclesList() {
@@ -8,7 +8,7 @@ function MusclesList() {
   const [muscles, setMuscles] = useState<Muscle[]>([]);
 
   useEffect(() => {
-    fetchData<MuscleList>('muscles')
+    fetchData<MuscleList>(ResourceType.MUSCLES)
       .then((response) => setMuscles(response.data))
       .catch(error => console.log('Error fetching muscles:', error))
   }, [])

@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 import { Link, useParams } from "react-router-dom"
 import { RoutineDetail } from "../../interfaces/Routines"
-import { fetchItemById } from "../../service/DataApi"
+import { ResourceType, fetchItemById } from "../../service/DataApi"
 import SeeSVG from "../../pages/UIComponents/SDetailSVG"
 import Cards, { CardSize } from "../../pages/UIComponents/Cards"
 
@@ -14,7 +14,7 @@ function RoutinesDetail() {
   useEffect(() => {
     const handleSelectRoutine = async () => {
       try {
-        const response = await fetchItemById<RoutineDetail>('routines', id)
+        const response = await fetchItemById<RoutineDetail>(ResourceType.ROUTINES, id)
         const detail = response.data
         console.log(detail)
         setSelectedRoutine(detail)

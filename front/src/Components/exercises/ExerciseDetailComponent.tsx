@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 import { ExerciseDetail } from "../../interfaces/Exercises"
-import { fetchItemById } from "../../service/DataApi"
+import { ResourceType, fetchItemById } from "../../service/DataApi"
 import { Link, useParams } from "react-router-dom"
 import Cards, { CardSize } from "../../pages/UIComponents/Cards"
 
@@ -13,7 +13,7 @@ function ExercisesDetail() {
     useEffect(() => {
         const handleSelectExercise = async () => {
             try {
-                const response = await fetchItemById<ExerciseDetail>('exercises', id)
+                const response = await fetchItemById<ExerciseDetail>(ResourceType.EXERCISES, id)
                 const detail = response.data
                 setSelectedExercise(detail)
             } catch (error) {

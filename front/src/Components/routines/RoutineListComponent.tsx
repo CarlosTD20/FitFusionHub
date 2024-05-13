@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 import { Routine, RoutineList } from "../../interfaces/Routines"
-import { fetchData } from "../../service/DataApi"
+import { ResourceType, fetchData } from "../../service/DataApi"
 import Cards, { CardSize } from "../../pages/UIComponents/Cards"
 
 function RoutinesList() {
@@ -8,7 +8,7 @@ function RoutinesList() {
   const [routines, setRoutines] = useState<Routine[]>([])
 
   useEffect(() => {
-    fetchData<RoutineList>('routines')
+    fetchData<RoutineList>(ResourceType.ROUTINES)
       .then((response) => setRoutines(response.data))
       .catch((error) => console.error('Error fethcing routines: ', error))
   }, [])

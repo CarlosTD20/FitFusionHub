@@ -2,7 +2,7 @@ import { useEffect, useState } from "react"
 import { RoutineMock } from "../../interfaces/Routines"
 import { Exercise, ExerciseList } from "../../interfaces/Exercises"
 import { Link } from "react-router-dom"
-import { addItem, fetchData } from "../../service/DataApi"
+import { ResourceType, addItem, fetchData } from "../../service/DataApi"
 import ErrorModal from "../../pages/UIComponents/ErrorModal"
 
 function RoutineInsert() {
@@ -18,7 +18,7 @@ function RoutineInsert() {
   const [errorMessage, setErrorMessage] = useState<string>("")
 
   useEffect(() => {
-    fetchData<ExerciseList>('exercises')
+    fetchData<ExerciseList>(ResourceType.EXERCISES)
       .then((response) => { setExercises(response.data) })
       .catch((error) => {
         console.error("Error fetching exercises:", error)
@@ -42,7 +42,7 @@ function RoutineInsert() {
         exerciseId: selectedExerciseIds
       }
       console.log(newRoutine)
-      await addItem<RoutineMock>('routines', newRoutine)
+      await addItem<RoutineMock>(ResourceType.ROUTINES, newRoutine)
       console.log('Routine inserted successfully')
       window.location.reload()
     } catch (error) {

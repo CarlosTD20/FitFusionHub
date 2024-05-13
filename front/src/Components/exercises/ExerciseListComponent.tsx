@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import { fetchData } from "../../service/DataApi"
+import { ResourceType, fetchData } from "../../service/DataApi"
 import { Exercise, ExerciseList } from "../../interfaces/Exercises"
 import Cards, { CardSize } from "../../pages/UIComponents/Cards"
 
@@ -8,7 +8,7 @@ function ExercisesList() {
     const [exercises, setExercises] = useState<Exercise[]>([])
 
     useEffect(() => {
-        fetchData<ExerciseList>('exercises')
+        fetchData<ExerciseList>(ResourceType.EXERCISES)
             .then((response) => setExercises(response.data))
             .catch(error => console.error('Error fetching exercises:', error))
     }, []);

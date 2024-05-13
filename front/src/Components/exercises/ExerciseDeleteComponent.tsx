@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import { deleteItem, fetchItemById } from "../../service/DataApi"
+import { ResourceType, deleteItem, fetchItemById } from "../../service/DataApi"
 import { Link, useParams } from "react-router-dom"
 import { ExerciseDetail } from "../../interfaces/Exercises"
 import ErrorModal from "../../pages/UIComponents/ErrorModal"
@@ -14,7 +14,7 @@ function ExercisesDelete() {
     useEffect(() => {
         const handleSelectExercise = async () => {
             try {
-                const response = await fetchItemById<ExerciseDetail>('exercises', id)
+                const response = await fetchItemById<ExerciseDetail>(ResourceType.EXERCISES, id)
                 const detail = response.data
                 setSelectedExercise(detail)
             } catch (error) {
@@ -30,7 +30,7 @@ function ExercisesDelete() {
     const handleDeleteExercise = async () => {
         try {
             if (id !== null) {
-                await deleteItem('exercises', id)
+                await deleteItem(ResourceType.EXERCISES, id)
                 setErrorMessage('')
             } else {
                 console.error('Exercise ID is null.')

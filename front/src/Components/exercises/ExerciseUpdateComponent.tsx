@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import { fetchItemById, updateItem, fetchData } from "../../service/DataApi"
+import { fetchItemById, updateItem, fetchData, ResourceType } from "../../service/DataApi"
 import { ExerciseDetail, ExerciseMock } from "../../interfaces/Exercises"
 import { Link, useParams } from "react-router-dom"
 import { Muscle, MuscleList } from "../../interfaces/Muscles"
@@ -21,7 +21,7 @@ function ExerciseUpdate() {
     useEffect(() => {
         const fetchExerciseDetails = async () => {
             try {
-                const response = await fetchItemById<ExerciseDetail>('exercises', id)
+                const response = await fetchItemById<ExerciseDetail>(ResourceType.EXERCISES, id)
                 const detail = response.data
                 setExerciseData({
                     name: detail.name,
@@ -36,7 +36,7 @@ function ExerciseUpdate() {
 
         fetchExerciseDetails()
 
-        fetchData<MuscleList>('muscles')
+        fetchData<MuscleList>(ResourceType.MUSCLES)
             .then((response) => setMuscles(response.data))
             .catch(error => console.error('Error fetching muscles:', error))
 
@@ -58,7 +58,7 @@ function ExerciseUpdate() {
                 muscleId: parseInt(selectedMuscleId) || 0
             }
             console.log(updatedExercise)
-            await updateItem<ExerciseMock>('exercises', id, updatedExercise)
+            await updateItem<ExerciseMock>(ResourceType.EXERCISES, id, updatedExercise)
             console.log('Exercise updated successfully')
             setErrorMessage('')
             window.location.reload()

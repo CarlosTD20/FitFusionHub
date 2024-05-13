@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import { addItem, fetchData } from "../../service/DataApi"
+import { ResourceType, addItem, fetchData } from "../../service/DataApi"
 import { ExerciseMock } from "../../interfaces/Exercises"
 import { Muscle } from "../../interfaces/Muscles"
 import { Link } from "react-router-dom"
@@ -13,7 +13,7 @@ function ExercisesInsert() {
     const [errorMessage, setErrorMessage] = useState<string>('')
 
     useEffect(() => {
-        fetchData<Muscle[]>('muscles')
+        fetchData<Muscle[]>(ResourceType.MUSCLES)
             .then((response) => setMuscles(response.data))
             .catch(error => console.error('Error fetching muscles:', error))
     }, [])
@@ -25,7 +25,7 @@ function ExercisesInsert() {
                 description: newExerciseDescription,
                 muscleId: selectedMuscleId || 0
             }
-            await addItem<ExerciseMock>('exercises', newExercise)
+            await addItem<ExerciseMock>(ResourceType.EXERCISES, newExercise)
             setNewExerciseName('')
             setNewExerciseDescription('')
             setSelectedMuscleId(null)

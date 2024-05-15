@@ -1,0 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=Archivo:ital,wght@0,100..900;1,100..900&display=swap');
+
+html, body, #root {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    background-color: rgb(249,247,243);
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;   
